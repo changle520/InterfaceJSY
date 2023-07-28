@@ -1,0 +1,42 @@
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://test-ops.21.hzjishiyu.com:443 "POST /jsy-api-ops-pc/ops/pc/device/device_version/add HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : add
+[32mINFO    [0m root:request.py:62 [ request url ] : https://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/device/device_version/add
+[32mINFO    [0m root:request.py:63 [ request paramer ] : None
+[32mINFO    [0m root:request.py:64 [ request hearder ] : {'Content-Type': 'application/json', 'SYSTEM_ID': '2', 'Authorization': 'Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZW5hYmxlIjoxLCJtb2JpbGUiOiIxNTA1NzE5MjM1OCIsIm5hbWUiOiJhZG1pbiIsImxldmVsIjoxLCJwYXNzQ29kZSI6IjEyMzQiLCJvd25lclVzZXJJZCI6MCwiZ3JvdXBOYW1lIjoi5ZCJ5pe26K-t56eR5oqAIiwic3lzdGVtSWQiOjIsInJvbGVMaXN0IjpbeyJpZCI6MSwibmFtZSI6Iui2hee6p-euoeeQhuWRmCIsImRlc2NyaXB0aW9uIjoi5oul5pyJ5omA5pyJ5p2D6ZmQIiwidXNlcklkIjoxLCJzeXN0ZW1JZCI6MiwiY3JlYXRlVGltZSI6IjIwMjEtMDYtMjMgMTY6MDI6MzIiLCJsZXZlbCI6MSwid2ViTWVudUxpc3QiOm51bGwsImFwcE1lbnVMaXN0IjpudWxsLCJjcmVhdGVVc2VySWQiOjF9XX0sInN1YiI6ImFkbWluIn0.'}
+[32mINFO    [0m root:request.py:65 [ request data ] : {"deviceType": 4, "deviceNumber": "1.0.0", "etag": "2A274B5583A003CA0B3F069F1668CE5A", "numberDescribe": "test", "productModel": "testversion001", "url": "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-hdVWuftXRggj_301.34.23.050601.apk"}
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.046746 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'code': 0, 'msg': 'success', 'data': None}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://test-ops.21.hzjishiyu.com:443 "GET /jsy-api-ops-pc/ops/pc/device/device_version/list?size=10&page=1 HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : list
+[32mINFO    [0m root:request.py:62 [ request url ] : https://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/device/device_version/list?size=10&page=1
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'size': 10, 'page': 1}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : {'Content-Type': 'application/json', 'SYSTEM_ID': '2', 'Authorization': 'Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZW5hYmxlIjoxLCJtb2JpbGUiOiIxNTA1NzE5MjM1OCIsIm5hbWUiOiJhZG1pbiIsImxldmVsIjoxLCJwYXNzQ29kZSI6IjEyMzQiLCJvd25lclVzZXJJZCI6MCwiZ3JvdXBOYW1lIjoi5ZCJ5pe26K-t56eR5oqAIiwic3lzdGVtSWQiOjIsInJvbGVMaXN0IjpbeyJpZCI6MSwibmFtZSI6Iui2hee6p-euoeeQhuWRmCIsImRlc2NyaXB0aW9uIjoi5oul5pyJ5omA5pyJ5p2D6ZmQIiwidXNlcklkIjoxLCJzeXN0ZW1JZCI6MiwiY3JlYXRlVGltZSI6IjIwMjEtMDYtMjMgMTY6MDI6MzIiLCJsZXZlbCI6MSwid2ViTWVudUxpc3QiOm51bGwsImFwcE1lbnVMaXN0IjpudWxsLCJjcmVhdGVVc2VySWQiOjF9XX0sInN1YiI6ImFkbWluIn0.'}
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : GET
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.034578 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'code': 0, 'msg': 'success', 'data': {'content': [{'id': 420, 'deviceType': 4, 'productModel': 'testversion001', 'updateTime': '2023-07-28 15:33:34', 'dvNumber': '1.0.0', 'descript': 'test'}, {'id': 355, 'deviceType': 4, 'productModel': 'AI340', 'updateTime': '2023-07-18 18:28:15', 'dvNumber': '103.34.23.0616', 'descript': '0616版本'}, {'id': 362, 'deviceType': 1, 'productModel': 'JTC340', 'updateTime': '2023-07-18 18:13:15', 'dvNumber': '103.34.23.0616', 'descript': '新增0616版本相关需求'}, {'id': 361, 'deviceType': 4, 'productModel': 'AI340', 'updateTime': '2023-07-18 17:52:37', 'dvNumber': '1.0.0', 'descript': 'test'}, {'id': 358, 'deviceType': 3, 'productModel': 'DID400', 'updateTime': '2023-07-07 19:34:57', 'dvNumber': '301.40.23.0616', 'descript': '1、解绑后，清空用户数据； 2、修改视频播放逻辑：'}, {'id': 357, 'deviceType': 3, 'productModel': 'DID330', 'updateTime': '2023-07-07 19:33:21', 'dvNumber': '301.33.23.0616', 'descript': '文件创建：301.33.23.0616软件release说明.'}, {'id': 356, 'deviceType': 3, 'productModel': 'DID340', 'updateTime': '2023-07-07 19:31:04', 'dvNumber': '301.34.23.0616', 'descript': '修改相关播放逻辑；修改禅道上若干bug'}, {'id': 354, 'deviceType': 3, 'productModel': 'DID340', 'updateTime': '2023-07-04 17:40:55', 'dvNumber': '301.34.23.0615', 'descript': '测试生产版本可用性'}, {'id': 353, 'deviceType': 3, 'productModel': 'DID340', 'updateTime': '2023-06-15 13:42:43', 'dvNumber': '301.34.23.061501', 'descript': '1、修改为下载成功时就已下刊的广告，不再继续下载；下载成功，也不再更改广告状态； 2、修改轮询未下载成功的广告逻辑：仅对未下载，下载中，下载失败的广告进行下载； 3、下载队列中，对是否已存在下载做判断：如果已存在下载队列中，则不会再次添加到队列中；'}, {'id': 337, 'deviceType': 3, 'productModel': 'DID340', 'updateTime': '2023-06-14 10:54:08', 'dvNumber': '301.34.23.0510', 'descript': '生产版本预发布，测试是否可用'}], 'number': 1, 'size': 10, 'totalElements': 124, 'pageable': {'sort': {'sorted': False, 'unsorted': True, 'empty': True}, 'pageSize': 10, 'pageNumber': 1, 'offset': 10, 'paged': True, 'unpaged': False}, 'last': False, 'totalPages': 13, 'sort': {'sorted': False, 'unsorted': True, 'empty': True}, 'first': False, 'numberOfElements': 10, 'totalNum': 124, 'empty': False}}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://test-ops.21.hzjishiyu.com:443 "POST /jsy-api-ops-pc/ops/pc/device/device_version/del/420 HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : 420
+[32mINFO    [0m root:request.py:62 [ request url ] : https://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/device/device_version/del/420
+[32mINFO    [0m root:request.py:63 [ request paramer ] : None
+[32mINFO    [0m root:request.py:64 [ request hearder ] : {'Content-Type': 'application/json', 'SYSTEM_ID': '2', 'Authorization': 'Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZW5hYmxlIjoxLCJtb2JpbGUiOiIxNTA1NzE5MjM1OCIsIm5hbWUiOiJhZG1pbiIsImxldmVsIjoxLCJwYXNzQ29kZSI6IjEyMzQiLCJvd25lclVzZXJJZCI6MCwiZ3JvdXBOYW1lIjoi5ZCJ5pe26K-t56eR5oqAIiwic3lzdGVtSWQiOjIsInJvbGVMaXN0IjpbeyJpZCI6MSwibmFtZSI6Iui2hee6p-euoeeQhuWRmCIsImRlc2NyaXB0aW9uIjoi5oul5pyJ5omA5pyJ5p2D6ZmQIiwidXNlcklkIjoxLCJzeXN0ZW1JZCI6MiwiY3JlYXRlVGltZSI6IjIwMjEtMDYtMjMgMTY6MDI6MzIiLCJsZXZlbCI6MSwid2ViTWVudUxpc3QiOm51bGwsImFwcE1lbnVMaXN0IjpudWxsLCJjcmVhdGVVc2VySWQiOjF9XX0sInN1YiI6ImFkbWluIn0.'}
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.041969 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'code': 0, 'msg': 'success', 'data': None}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------

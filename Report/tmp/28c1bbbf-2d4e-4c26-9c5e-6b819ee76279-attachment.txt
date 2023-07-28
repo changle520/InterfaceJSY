@@ -1,0 +1,43 @@
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:1001 Starting new HTTPS connection (1): open.ys7.com:443
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/lapp/token/get?appKey=55366009f0934c2496a21cf81bc3ea35&appSecret=1ae7c9bde1a0e3cdcca46a639e50825e HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : get
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/lapp/token/get?appKey=55366009f0934c2496a21cf81bc3ea35&appSecret=1ae7c9bde1a0e3cdcca46a639e50825e
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'appKey': '55366009f0934c2496a21cf81bc3ea35', 'appSecret': '1ae7c9bde1a0e3cdcca46a639e50825e'}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.076743 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'msg': '操作成功!', 'code': '200', 'data': {'accessToken': 'at.dcrlabt82nilzzea08xci8wj3r5ycbv6-4jnlnxo7jx-0qvcc0c-of8khfs9o', 'expireTime': 1690450397501}}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/lapp/mq/v2/consumer/group6?accessToken=at.dcrlabt82nilzzea08xci8wj3r5ycbv6-4jnlnxo7jx-0qvcc0c-of8khfs9o HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : group6
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/lapp/mq/v2/consumer/group6?accessToken=at.dcrlabt82nilzzea08xci8wj3r5ycbv6-4jnlnxo7jx-0qvcc0c-of8khfs9o
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'accessToken': 'at.dcrlabt82nilzzea08xci8wj3r5ycbv6-4jnlnxo7jx-0qvcc0c-of8khfs9o'}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.037971 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'code': '200', 'msg': '操作成功', 'data': {'consumerId': '84c17edaaa5d427985ed23dbe50bd5d9'}}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/lapp/token/get?appKey=55366009f0934c2496a21cf81bc3ea35&appSecret=1ae7c9bde1a0e3cdcca46a639e50825e HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : get
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/lapp/token/get?appKey=55366009f0934c2496a21cf81bc3ea35&appSecret=1ae7c9bde1a0e3cdcca46a639e50825e
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'appKey': '55366009f0934c2496a21cf81bc3ea35', 'appSecret': '1ae7c9bde1a0e3cdcca46a639e50825e'}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.02751 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'msg': '操作成功!', 'code': '200', 'data': {'accessToken': 'at.dcrlabt82nilzzea08xci8wj3r5ycbv6-4jnlnxo7jx-0qvcc0c-of8khfs9o', 'expireTime': 1690450397501}}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------

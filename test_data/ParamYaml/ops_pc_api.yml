@@ -1,0 +1,2658 @@
+login:
+   -
+      Describe: 登录接口,输入正确的用户名、密码
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/auth/login
+      Params:
+            loginType: 1
+            username: admin
+            password: 0a56662eea58f00e595f11cd23c8f11f
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: 2
+   -
+      Describe: 登录接口,输入错误的用户名、密码
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/auth/login
+      Params:
+            loginType: 1
+            username: admin
+            password: 123456
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: 2
+   -
+      Describe: 登录接口，用户名、密码为空
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/auth/login
+      Params:
+            loginType: 1
+            username:
+            password:
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: 2
+logout:
+   -
+      Describe: 登出接口
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/auth/logout
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: 2
+            user_id: 1
+modify_passwd:
+   -
+      Describe: 修改密码
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/info/password/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: 2
+      Params:
+            newPassword: 123456Bb
+            newPassword2: 123456Bb
+            oldPassword: 123456Bb
+get_code:
+   -
+      Describe: 登录前获取验证码
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/verification/code
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            systemId: '2'
+eleStatusDateType:
+   -
+      Describe: 电梯状态统计-近7日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/status/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleStatusDateType: 1
+            villageId:
+            areaId:
+            cityId:
+            streetId:
+            provinceId:
+   -
+      Describe: 电梯状态统计-近30日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/status/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleStatusDateType: 2
+            villageId:
+            areaId:
+            cityId:
+            streetId:
+            provinceId:
+   -
+      Describe: 电梯状态统计-不传入参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/status/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+   - Describe: 电梯状态统计-传入错误的参数值
+     Method: GET
+     ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/status/count
+     Headers:
+       Content-Type: application/json
+       SYSTEM_ID: '2'
+     Params:
+       eleStatusDateType: 3
+       villageId: 3
+       areaId: 3
+       cityId: 3
+       streetId: 3
+       provinceId: 3
+count:
+   -
+      Describe: 电梯不同状态数量统计-传正确的参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            areaId: 13976
+            cityId: 13873
+            provinceId: 13135
+            villageId: 117
+            streetId: 13991
+   -
+      Describe: 电梯不同状态数量统计-参数值传入空
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            areaId:
+            cityId:
+            provinceId:
+            villageId:
+            streetId:
+   -
+      Describe: 电梯不同状态数量统计-传入不正确的参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            areaId: 22222
+            cityId: 33333
+            provinceId: 44444
+            villageId: 1177
+            streetId: 139911
+   -
+      Describe: 电梯不同状态数量统计-不传入参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/ele/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+device_count:
+   -
+      Describe: 设备数量及在线情况-区域传入正确的值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            areaId: 13976
+            cityId: 13873
+            provinceId: 13135
+            villageId: 117
+            streetId: 13991
+   -
+      Describe: 设备数量及在线情况-传入不存在的参数值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            areaId: 22222
+            cityId: 33333
+            provinceId: 44444
+            villageId: 555
+            streetId: 66666
+   -
+      Describe: 设备数量及在线情况-传入的参数值为空
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            areaId:
+            cityId:
+            provinceId:
+            villageId:
+            streetId:
+   -
+      Describe: 设备数量及在线情况-不传入参数值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+deviceError_count:
+   -
+      Describe: 故障告警数量-近7日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/error/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceErrorDateType: 1
+   -
+      Describe: 故障告警数量-近30日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/error/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceErrorDateType: 2
+   -
+      Describe: 故障告警数量-传入错误的参数值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/error/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceErrorDateType: 10000
+   -
+      Describe: 故障告警数量-不传参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/device/error/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+lockEvent_count:
+   -
+      Describe: 困人报警统计-近7日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/lock/event/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            lockEventDateType: 1
+   - Describe: 困人报警统计-近30日
+     Method: GET
+     ApiUrl: jsy-api-ops-pc/ops/pc/home/lock/event/count
+     Headers:
+       Content-Type: application/json
+       SYSTEM_ID: '2'
+     Params:
+       lockEventDateType: 2
+   -
+      Describe: 困人报警统计-传入错误的参数值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/lock/event/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            lockEventDateType: 333
+   -
+      Describe: 困人报警统计-不传参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/lock/event/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+callRecord_count:
+   -
+      Describe: 一键呼救统计-近7日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/call/record/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            callRecordDateType: 1
+   -
+      Describe: 一键呼救统计-近30日
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/call/record/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            callRecordDateType: 2
+   -
+      Describe: 一键呼救统计-传入错误的参数值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/call/record/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            callRecordDateType: 333
+   -
+      Describe: 一键呼救统计-不传参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/home/call/record/count
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+elevator_del:
+   -
+      Describe: 删除电梯(批量)
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/delete
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            ids:
+              -
+                1976
+   -
+      Describe: 删除电梯(批量)
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/delete
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            ids:
+              -
+                1924
+   -
+      Describe: 删除电梯(批量)-传入不存在的电梯ID
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/delete
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            ids:
+              -
+                66666
+   -
+      Describe: 删除电梯(批量)-不传入参数
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/delete
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+elevator_list:
+   -
+      Describe: 电梯列表查询-参数值为空
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            provinceId:
+            areaId:
+            cityId:
+            streetId:
+            villageId:
+            eleLocation:
+            eleNum:
+            regCode:
+            state:
+            size:
+            page:
+   -
+      Describe: 电梯列表查询-待安装的电梯
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            state: 0
+   -
+      Describe: 电梯列表查询-试运行的电梯
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            state: 1
+   -
+      Describe: 电梯列表查询-正常运行的电梯
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            state: 2
+   -
+      Describe: 电梯列表查询-异常的电梯
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            state: 3
+elevator_update:
+   -
+      Describe: 编辑电梯资料-传入正确的参数值
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleLocation: "14栋1单元右梯"
+            eleType: 1
+            brandId: 1
+            haveRoom: 0
+            useUnit: "珠海玉兰湖庭物业管理有限公司"
+            useUnitEmergencyPhone: "15555555555"
+            useUnitContact: "李四"
+            useUnitContactPhone: "19999999999"
+            maintenanceCompanyEmergencyPhone: "19999999999"
+            userIds: []
+            internalNum: "14-1-2"
+            registerDate: "2022-12-11"
+            regCode: "5456456468748545466"
+            releaseNum: null
+            releaseDate: ""
+            makeUnit: null
+            eleModel: null
+            installUnit: null
+            installDate: ""
+            remouldUnit: null
+            remouldDate: ""
+            govMonitoringNum: null
+            eleFloor: null
+            nominalSpeed: null
+            nominalCapacity: null
+            controlMode: 1
+            regOffice: null
+            networkMode: 2
+            useUnitAddress: null
+            useUnitCreditCode: null
+            safetyManager: null
+            safetyManagerPhone: null
+            certificateDate: ""
+            propertyUnit: null
+            propertyUnitPhone: null
+            propertyUnitCreditCode: null
+            checkOffice: null
+            checkOfficeQualification": 1
+            checkOfficePhone": null
+            detectionUnit": null
+            detectionUnitQualification": 2
+            reportNum": null
+            checkDate": ""
+            yearCheckDate: ""
+            nextCheckDate: ""
+            nextDetectionDate: ""
+            maintenanceCompany: null
+            maintenanceCompanyCreditCode: null
+            maintenanceCompanyQualification: 1
+            maintenanceCompanyAddress: null
+            maintenanceCompanyContact: null
+            maintenanceCompanyContactPhone: null
+            maintenanceCompanyEmployee: null
+            maintenanceCompanyEmployeePhone: "13311112222"
+            maintenanceCompanyEmployeeCertificateDate: ""
+            eleRegion: "北京 北京市 朝阳区 建外街道 光华里小区"
+            id: 1946
+   -
+      Describe: 编辑电梯资料-传入不存在的电梯ID
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleLocation: "14栋1单元右梯"
+            eleType: 1
+            brandId: 1
+            haveRoom: 0
+            useUnit: "珠海玉兰湖庭物业管理有限公司"
+            useUnitEmergencyPhone: "15555555555"
+            useUnitContact: "李四"
+            useUnitContactPhone: "19999999999"
+            maintenanceCompanyEmergencyPhone: "19999999999"
+            userIds: []
+            internalNum: "14-1-2"
+            registerDate: "2022-12-11"
+            regCode: "5456456468748545466"
+            releaseNum: null
+            releaseDate: ""
+            makeUnit: null
+            eleModel: null
+            installUnit: null
+            installDate: ""
+            remouldUnit: null
+            remouldDate: ""
+            govMonitoringNum: null
+            eleFloor: null
+            nominalSpeed: null
+            nominalCapacity: null
+            controlMode: 1
+            regOffice: null
+            networkMode: 2
+            useUnitAddress: null
+            useUnitCreditCode: null
+            safetyManager: null
+            safetyManagerPhone: null
+            certificateDate: ""
+            propertyUnit: null
+            propertyUnitPhone: null
+            propertyUnitCreditCode: null
+            checkOffice: null
+            checkOfficeQualification": 1
+            checkOfficePhone": null
+            detectionUnit": null
+            detectionUnitQualification": 2
+            reportNum": null
+            checkDate": ""
+            yearCheckDate: ""
+            nextCheckDate: ""
+            nextDetectionDate: ""
+            maintenanceCompany: null
+            maintenanceCompanyCreditCode: null
+            maintenanceCompanyQualification: 1
+            maintenanceCompanyAddress: null
+            maintenanceCompanyContact: null
+            maintenanceCompanyContactPhone: null
+            maintenanceCompanyEmployee: null
+            maintenanceCompanyEmployeePhone: "13311112222"
+            maintenanceCompanyEmployeeCertificateDate: ""
+            eleRegion: "北京 北京市 朝阳区 建外街道 光华里小区"
+            id: 88888
+   -
+      Describe: 编辑电梯资料-不传入参数
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+elevator_add:
+   -
+      Describe: 新增电梯-电梯不存在
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/save
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleLocation: 2号梯
+            eleType: 1
+            brandId: 1
+            haveRoom: 0
+            useUnit: jsy
+            useUnitEmergencyPhone: 18888889999
+            useUnitContact: zs
+            useUnitContactPhone: 18888889999
+            maintenanceCompanyEmergencyPhone: 18888889999
+            userIds: []
+            internalNum: null
+            registerDate:
+            regCode: null
+            releaseNum: null
+            releaseDate:
+            makeUnit: null
+            eleModel: null
+            installUnit: null
+            installDate:
+            remouldUnit: null
+            remouldDate:
+            govMonitoringNum: null
+            eleFloor: null
+            nominalSpeed: null
+            nominalCapacity: null
+            controlMode: 1
+            regOffice: null
+            networkMode: null
+            useUnitAddress: null
+            useUnitCreditCode: null
+            safetyManager: null
+            safetyManagerPhone: null
+            certificateDate:
+            propertyUnit: null
+            propertyUnitPhone: null
+            propertyUnitCreditCode: null
+            checkOffice: null
+            checkOfficeQualification: 1
+            checkOfficePhone: null
+            detectionUnit: null
+            detectionUnitQualification: 1
+            reportNum: null
+            checkDate:
+            yearCheckDate:
+            nextCheckDate:
+            nextDetectionDate:
+            maintenanceCompany: null
+            maintenanceCompanyCreditCode: null
+            maintenanceCompanyQualification: 1
+            maintenanceCompanyAddress: null
+            maintenanceCompanyContact: null
+            maintenanceCompanyContactPhone: null
+            maintenanceCompanyEmployee: null
+            maintenanceCompanyEmployeePhone: 18866667777
+            maintenanceCompanyEmployeeCertificateDate:
+            villageId: 186
+            streetId: 25995
+            streetName: 韭菜园街道
+            areaId: 25992
+            areaName: 芙蓉区
+            cityId: 25991
+            cityName: 长沙市
+            provinceId: 25990
+            provinceName: 湖南省
+   -
+      Describe: 新增电梯-电梯已存在
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator/save
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleLocation: 2号梯
+            eleType: 1
+            brandId: 1
+            haveRoom: 0
+            useUnit: jsy
+            useUnitEmergencyPhone: 18888889999
+            useUnitContact: zs
+            useUnitContactPhone: 18888889999
+            maintenanceCompanyEmergencyPhone: 18888889999
+            userIds: []
+            internalNum: null
+            registerDate:
+            regCode: null
+            releaseNum: null
+            releaseDate:
+            makeUnit: null
+            eleModel: null
+            installUnit: null
+            installDate:
+            remouldUnit: null
+            remouldDate:
+            govMonitoringNum: null
+            eleFloor: null
+            nominalSpeed: null
+            nominalCapacity: null
+            controlMode: 1
+            regOffice: null
+            networkMode: null
+            useUnitAddress: null
+            useUnitCreditCode: null
+            safetyManager: null
+            safetyManagerPhone: null
+            certificateDate:
+            propertyUnit: null
+            propertyUnitPhone: null
+            propertyUnitCreditCode: null
+            checkOffice: null
+            checkOfficeQualification: 1
+            checkOfficePhone: null
+            detectionUnit: null
+            detectionUnitQualification: 1
+            reportNum: null
+            checkDate:
+            yearCheckDate:
+            nextCheckDate:
+            nextDetectionDate:
+            maintenanceCompany: null
+            maintenanceCompanyCreditCode: null
+            maintenanceCompanyQualification: 1
+            maintenanceCompanyAddress: null
+            maintenanceCompanyContact: null
+            maintenanceCompanyContactPhone: null
+            maintenanceCompanyEmployee: null
+            maintenanceCompanyEmployeePhone: 18866667777
+            maintenanceCompanyEmployeeCertificateDate:
+            villageId: 186
+            streetId: 25995
+            streetName: 韭菜园街道
+            areaId: 25992
+            areaName: 芙蓉区
+            cityId: 25991
+            cityName: 长沙市
+            provinceId: 25990
+            provinceName: 湖南省
+overhaul_work_order:
+   -
+      Describe: 检修工单查询-普通工单
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dispatchStatusList: 7
+            eleLocation:
+            orderNum:
+            priorityList: 1
+            sourceList: 2
+            villageId:
+            sort: create_time,desc
+            startTime: 2023-05-01 00:00:00
+            endTime: 2023-05-31 23:59:59
+            size: 10
+            page: 1
+   -
+      Describe: 检修工单查询-加急工单
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dispatchStatusList: 7
+            eleLocation:
+            orderNum:
+            priorityList: 2
+            sourceList: 2
+            villageId:
+            sort: create_time,desc
+            startTime: 2023-05-01 00:00:00
+            endTime: 2023-05-31 23:59:59
+            size: 10
+            page: 1
+   -
+      Describe: 检修工单查询-特急工单
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dispatchStatusList: 7
+            eleLocation:
+            orderNum:
+            priorityList: 3
+            sourceList: 2
+            villageId:
+            sort: create_time,desc
+            startTime: 2023-05-01 00:00:00
+            endTime: 2023-05-31 23:59:59
+            size: 10
+            page: 1
+overhaul_work_order_person:
+   -
+      Describe: 派遣人员查询
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/person/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+overhaul_work_order_save:
+   -
+      Describe: 新增检修工单
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/save
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            priority: 1
+            elevatorId: 1924
+            problemDescription: test
+            picUrls: [ ]
+overhaul_work_order_close:
+   -
+      Describe: 关闭工单
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/close
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            closeReason: test
+            id: 106
+overhaul_work_order_info:
+   -
+      Describe: 检修工单详情页
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/info/107
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+overhaul_work_order_update:
+   -
+      Describe: 编辑检修工单
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/overhaul_work_order/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            overhaulWorkOrderId: 105
+            priority: 2
+            problemDescription: update2
+            picUrls: []
+deviceEct_upgrade:
+   -
+      Describe: 梯联设备升级
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/upgrade
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              - 659
+            deviceVersionId: 362
+deviceEct_broadcast:
+   -
+      Describe: 梯联广播升级
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/upgrade/broadcast
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceVersionId: 362
+            userName: admin
+deviceEct_list:
+   -
+      Describe: 梯联终端列表查询
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            code: 100334121210793
+            version: 103.34.23.0616
+            eleNum: 411602202302130001
+            productModelId: 108
+            villageId: 184
+            eleLocation: 2号梯
+            onlineState: 1
+            statusManage: 11
+            size: 10
+            page: 1
+deviceEct_update:
+   -
+      Describe: 梯联终端设备修改
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            blockDoor: 45
+            deviceId: 659
+            lockTimeOut: 30
+            openCloseDoorFault: 5
+            repeatedlyDoor: 4
+            stayTrapped: 1
+            outSideTrapped: 1
+            statusManage: 0
+            powerList:
+              -
+                id: 315
+                powerNum: 2
+                status: 1
+                statusLabel: 开启
+                deviceType: 2
+                deviceTypeLabel: 视频监测终端
+              -
+                id: 316
+                powerNum: 3
+                status: 1
+                statusLabel: 开启
+                deviceType: 3
+                deviceTypeLabel: 智能屏显终端
+device_bind_delete:
+   -
+      Describe: 设备解绑
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_device_bind/delete
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceId: 636
+            deviceType: 1
+device_message:
+   -
+      Describe: 设备日志
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/message/page/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceId: 659
+            deviceType: 1
+            page: 1
+            size: 10
+deviceEct_info:
+   -
+      Describe: 查看设备详情
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/info/659
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+deviceEct_restart:
+   -
+      Describe: 梯联设备重启
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/restart
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              -
+                659
+deviceEct_judge_param:
+   -
+      Describe: 检测参数配置
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceEct/judge/param
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            blockDoor: 45
+            deviceIdList:
+              -
+                659
+            lockTimeOut: 30
+            openCloseDoorFault: 5
+            repeatedlyDoor: 4
+            stayTrapped: 1
+            outSideTrapped: 1
+            statusManage: 0
+get_consumerId:
+   -
+      Describe: 读取consumerId
+      Method: POST
+      ApiUrl: api/lapp/mq/v2/consumer/group6
+      Params:
+            accessToken:
+get_accessToken:
+   -
+      Describe: 获取accessToken
+      Method: POST
+      ApiUrl: api/lapp/token/get
+      Params:
+            appKey: 55366009f0934c2496a21cf81bc3ea35
+            appSecret: 1ae7c9bde1a0e3cdcca46a639e50825e
+subscribeEvent:
+   -
+      Describe: 订阅消息
+      Method: POST
+      ApiUrl: api/open/cloud/ISAPI/Event/notification/subscribeEvent
+      Params:
+            deviceSerial: L42155091
+            accessToken:
+consumer_messages:
+   -
+      Describe: 告警消息查询
+      Method: POST
+      ApiUrl: api/lapp/mq/v2/consumer/messages
+      Params:
+            accessToken:
+            consumerId:
+address_get:
+   -
+      Describe: 录像回放
+      Method: POST
+      ApiUrl: api/lapp/v2/live/address/get
+      Params:
+            accessToken:
+            deviceSerial: C39204040
+            protocol: 1
+            type: 2
+            startTime: 2023-06-28 00:00:01
+            stopTime: 2023-06-28 08:59:12
+            quality: 1
+            expireTime: 7600
+            channelNo: 1
+            playbackSpeed:
+video_sava:
+   -
+      Describe: 云录制
+      Method: POST
+      ApiUrl: api/open/cloud/v1/video/save
+      Params:
+            accessToken:
+            recType: local
+            deviceSerial: C39204040
+            channelNo: 1
+            startTime: 20230711092500
+            endTime: 20230711093200
+            projectId: JSY_Test001
+            fileId: C39204040_1_2
+cloud_task:
+   -
+      Describe: 查询云录制
+      Method: GET
+      ApiUrl: api/v3/open/cloud/task/C39204040_1_2
+      Params:
+            accessToken:
+deviceIpc_list:
+   -
+      Describe: 视频监测终端查询
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIpc/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            code:
+            eleNum:
+            villageId:
+            eleLocation:
+            onlineState:
+            size: 10
+            page: 1
+update_defence:
+   -
+      Describe: 修改布防撤防状态：布防
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIpc/update_defence
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            ysDeviceSerial: K78652903
+            isDefence: 1
+   -
+      Describe: 修改布防撤防状态：撤防
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIpc/update_defence
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            ysDeviceSerial: K78652903
+            isDefence: 0
+batch_defence:
+   -
+      Describe: 批量布防
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIpc/batch_defence
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            -
+              K78652903
+batch_cancel_defence:
+   -
+      Describe: 批量撤防
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIpc/batch_cancel_defence
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            -
+              K78652903
+deviceIst_upgrade_broadcast:
+   -
+      Describe: 智能屏广播升级
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/upgrade/broadcast
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceVersionId: 358
+            userName: admin
+deviceIst_upgrade:
+   -
+      Describe: 智能屏升级
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/upgrade
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              -
+                604
+            deviceVersionId: 357
+deviceIst_restart:
+   -
+      Describe: 重启
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/restart
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              -
+                604
+deviceIst_sleep:
+   -
+      Describe: 熄屏设置
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/sleep/config
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              -
+                604
+            sleepList:
+              -
+                startTime: 00:00
+                endTime: 06:00
+deviceIst_voice_config:
+   -
+      Describe: 定时音量设置
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/voice/config
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              -
+                604
+            voiceList:
+              -
+                startTime: '00:00'
+                endTime: '23:59'
+                volume: 50
+deviceIst_phone_config:
+   -
+      Describe: 电话设置
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/phone/config
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceIdList:
+              -
+                604
+            phoneList:
+              -
+                phoneName: 物业
+                phoneNo: 13232323232
+elevator_device_bind_delete:
+   -
+      Describe: 设备解绑
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_device_bind/delete
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceType: 3
+            deviceId: 111
+deviceIst_list:
+   -
+      Describe: 智能屏列表
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            size: 10
+            page: 1
+deviceIst_log_download:
+   -
+      Describe: 日志下载
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/deviceIst/log/download
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceId: 604
+            logDate: '2023-07-18 14:00:00'
+log_list:
+   -
+      Describe: 设备日志列表查看
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/message/page/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceId: 604
+            deviceType: 3
+            size: 10
+            page: 1
+region_tree:
+   -
+      Describe: 直梯管理-小区树状图
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/user/region/tree/user
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+straight_elevator_base:
+   -
+      Describe: 直梯管理-基本信息
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/straight_elevator/base/info/1919
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+device_linking:
+   -
+      Describe: 直梯管理-设备链路
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/straight_elevator/device/linking/1919
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+device_error_call:
+   -
+      Describe: 直梯管理-设备故障
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/straight_elevator/device/error_call/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            eleId: 1919
+            size: 10
+            page: 1
+elevator_monitor:
+   -
+      Describe: 电梯实时监控-monitor
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/straight_elevator/elevator/monitor
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            id: 1919
+device_capacity:
+   -
+      Describe: 电梯实时监控-萤石云-capacity
+      Method: POST
+      ApiUrl: api/lapp/device/capacity
+      Params:
+            accessToken:
+            deviceSerial: K78652909
+device_info:
+   -
+      Describe: 电梯实时监控-萤石云-info
+      Method: POST
+      ApiUrl: api/lapp/device/info
+      Params:
+            accessToken:
+            deviceSerial: K78652909
+ezopen_url:
+   -
+      Describe: 电梯实时监控-萤石云-ezopen
+      Method: POST
+      ApiUrl: api/lapp/live/url/ezopen
+      Params:
+            accessToken:
+            ezopen: 'ezopen://open.ys7.com/K78652909/1.live'
+            isFlv: 'false'
+            userAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79
+            isHttp: 'false'
+device_error_call_list:
+   -
+      Describe: 设备故障列表-待处理
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/call/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dealStatus: 1
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            errorType:
+            regCode:
+            villageId:
+            size: 10
+            page: 1
+   -
+      Describe: 设备故障列表-已处理
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/call/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dealStatus: 2
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            errorType:
+            regCode:
+            villageId:
+            size: 10
+            page: 1
+device_version_detail:
+   -
+      Describe: 查看固件详情
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/device_version/detail
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            id: 355
+device_version_update:
+   -
+      Describe: 编辑固件详情
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/device_version/update
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            id: 355
+            deviceType: 4
+            dvNumber: "103.34.23.0616"
+            etag:
+            descript: 0616版本
+            productModel: AI340
+            url:
+device_version_add:
+   -
+      Describe: 新增固件版本
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/device_version/add
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceType: 4
+            deviceNumber: "1.0.0"
+            etag: 2A274B5583A003CA0B3F069F1668CE5A
+            numberDescribe: test
+            productModel:
+            url: "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-hdVWuftXRggj_301.34.23.050601.apk"
+device_version_del:
+   -
+      Describe: 删除固件版本
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/device_version/del
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+product_model_add:
+   -
+      Describe: 新增固件产品型号
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/product_model/add
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceType: 4
+            productModel: testapi001
+   -
+      Describe: 新增固件产品型号-固件版本初始化参数
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/product_model/add
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceType: 4
+            productModel: testversion001
+device_version_list:
+   -
+      Describe: 固件产品型号列表查看
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/device_version/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            size: 10
+            page: 1
+product_model_update:
+   -
+      Describe: 编辑固件产品型号
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/product_model/update/modify
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            deviceType: 4
+            id:
+            productModel: test001
+product_model_del:
+   -
+      Describe: 删除固件产品型号
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/product_model/del
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+product_model_list:
+   -
+      Describe: 固件产品型号列表查看
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device/product_model/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            size: 10
+            page: 1
+elevator_call_record_list:
+   -
+      Describe: 一键呼救列表
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            page: 1
+            size: 10
+            eleLocation:
+            regCode:
+            eleNum:
+            state:
+            villageId:
+            callTimeStart:
+            callTimeEnd:
+   -
+      Describe: 一键呼救列表-通话结束
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            page: 1
+            size: 10
+            eleLocation:
+            regCode:
+            eleNum:
+            state: 2
+            villageId:
+            callTimeStart:
+            callTimeEnd:
+   -
+      Describe: 一键呼救列表-平台未接听
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            page: 1
+            size: 10
+            eleLocation:
+            regCode:
+            eleNum:
+            state: -1
+            villageId:
+            callTimeStart:
+            callTimeEnd:
+   -
+      Describe: 一键呼救列表-传入错误的参数值
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            page: 1
+            size: 10
+            eleLocation:
+            regCode:
+            eleNum:
+            state: 999
+            villageId:
+            callTimeStart:
+            callTimeEnd:
+   -
+      Describe: 一键呼救列表-不传参数
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+elevator_call_record_export:
+   -
+      Describe: 一键呼救导出
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/export
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            page: 1
+            size: 10
+            eleLocation:
+            regCode:
+            eleNum:
+            state:
+            villageId:
+            callTimeStart:
+            callTimeEnd:
+elevator_call_record_info:
+   -
+      Describe: 通话记录信息获取
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/elevator_call_record/info
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+device_error_trapped_list:
+   -
+      Describe: 困人处置列表
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus:
+            villageId: 184
+            lockEventType:
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-待处理
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus: 1
+            villageId:
+            lockEventType:
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-真实
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus: 3
+            villageId:
+            lockEventType:
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-误报
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus: 5
+            villageId:
+            lockEventType:
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-平层区域外困人
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus:
+            villageId:
+            lockEventType: 2
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-平层区域内困人
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus:
+            villageId:
+            lockEventType: 1
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-区域外困人
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus:
+            villageId:
+            lockEventType: 0
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-未知
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus:
+            villageId:
+            lockEventType: -1
+            status:
+            page: 1
+            size: 10
+   -
+      Describe: 困人处置列表-误报
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus: 5
+            villageId:
+            lockEventType:
+            status:
+            page: 1
+            size: 10
+device_error_trapped_export:
+   -
+      Describe: 困人处置列表导出
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/export
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            eleLocation:
+            eleNum:
+            regCode:
+            dealStatus:
+            lockEventType:
+            status:
+            page: 1
+            size: 10
+update_deal_status_send_sms:
+   -
+      Describe: 困人事件标记真实
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/update/deal_status/send_sms
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            elevatorId: 1918
+            id: 163637
+update_deal_status_false_alarm:
+   -
+      Describe: 困人事件标记误报
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/update/deal_status/false_alarm
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            ids: 163637
+device_error_trapped_video_replay:
+   -
+      Describe: 困人事件回放
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/device_error/trapped/video/replay
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            id: 163637
+watch_stander_person_list:
+   -
+      Describe:  应急值班人员列表
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/watch_stander/person/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+watch_stander_info:
+   -
+      Describe:  周一到周日对应的应急值班人员
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/watch_stander/info
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dayOfWeek: 1
+watch_stander_save:
+   -
+      Describe: 新增、编辑应急值班人员
+      Method: POST
+      ApiUrl: jsy-api-ops-pc/ops/pc/watch_stander/save
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            dayOfWeek: 1
+            standerDtoList:
+              -
+                id: 170
+                createTime: "2023-07-20 11:06:36"
+                watchUserId: 354
+                watchUserName: AL
+                transferUserId: 354
+                transferUserName: AL
+                startTime: "00:45"
+                endTime: "08:38"
+                dateList:
+                  -
+                    "00:45"
+                  -
+                    "08:38"
+              -
+                dateList:
+                  -
+                    "09:15"
+                  -
+                    "17:15"
+                transferUserId: 352
+                watchUserId: 352
+                startTime: "09:15"
+                endTime: "17:15"
+alarm_event_type:
+   -
+      Describe:  事件告警类型
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/event/type/enum/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            errorSortType: 3
+alarm_event_list:
+   -
+      Describe:  事件告警列表
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/event/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            size: 10
+            page: 1
+alarm_event_list_export:
+   -
+      Describe:  事件告警记录导出
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/event/export
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime: "2023-07-11 00:00:00"
+            endTime: "2023-07-11 00:00:00"
+            size:
+            page:
+alarm_fault_type:
+   -
+      Describe:  故障告警类型
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/fault/type/enum/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            errorSortType: 4
+alarm_fault_list:
+   -
+      Describe:  故障告警列表
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/fault/list
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+            size: 10
+            page: 1
+alarm_fault_export:
+   -
+      Describe:  故障告警导出-大于5万条
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/fault/export
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime:
+            endTime:
+   -
+      Describe:  故障告警导出-小于5万条
+      Method: GET
+      ApiUrl: jsy-api-ops-pc/ops/pc/alarm/fault/export
+      Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+      Params:
+            startTime: "2023-07-18 00:34:55"
+            endTime: "2023-07-18 16:34:55"
+            size: 10
+            page: 1
+device_offline_record_list:
+    -                 
+       Describe: 设备上下线日志列表
+       Method: GET    
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            page: 1
+            size: 10
+            deviceTypeCodes:
+            villageIds:
+            eleLocation:
+            deviceCode:
+    -
+       Describe: 设备上下线日志列表-梯联终端
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            page: 1
+            size: 10
+            deviceTypeCodes: 1
+            villageIds:
+            eleLocation:
+            deviceCode:
+    -
+       Describe: 设备上下线日志列表-视频监测终端
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            page: 1
+            size: 10
+            deviceTypeCodes: 2
+            villageIds:
+            eleLocation:
+            deviceCode:
+    -
+       Describe: 设备上下线日志列表-智能屏显终端
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            page: 1
+            size: 10
+            deviceTypeCodes: 3
+            villageIds:
+            eleLocation:
+            deviceCode:
+frequent_offline_list:
+    -
+       Describe: 频繁掉线列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/frequent_offline_list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            offlineCount: 1
+            offlineDuration: 1
+            offlineStartTime: "2023-06-12 00:00:00"
+            offlineEndTime: "2023-07-12 00:00:00"
+            villageIds: 191
+frequent_offline_export:
+    -
+       Describe: 频繁掉线导出
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/frequent_offline_export
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            offlineCount: 3
+            offlineDuration: 1
+            offlineStartTime: "2023-06-12 00:00:00"
+            offlineEndTime: "2023-07-12 00:00:00"
+            villageIds: 113
+offline_device_list:
+    -
+       Describe: 离线统计列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/offline_device_list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            deviceType: 3
+            offlineDuration: 10
+            villageIds: 113
+            page: 1
+            size: 10
+offline_device_export:
+    -
+       Describe: 离线统计导出
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/offline/record/offline_device_export
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            deviceType: 3
+            offlineDuration: 10
+            villageIds: 113
+pc_log_list:
+    -
+       Describe: 操作日志列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/log/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            operateContent:
+            operateModule:
+            operateStatus:
+            userName:
+            size: 10
+            page: 1
+    -
+       Describe: 操作日志列表-失败
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/log/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            operateContent:
+            operateModule:
+            operateStatus: 0
+            userName:
+            size: 10
+            page: 1
+    -
+       Describe: 操作日志列表-成功
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/log/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            operateContent:
+            operateModule:
+            operateStatus: 1
+            userName:
+            size: 10
+            page: 1
+pc_module_list:
+    -
+       Describe: 日志菜单模块列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/log/module/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+message_list:
+    -
+       Describe: 指令消息日志
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/message/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            deviceCode:
+            deviceType:
+            eleAddress:
+            userName:
+            size: 10
+            page: 1
+    -
+       Describe: 指令消息日志-操作失败
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/message/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            deviceCode:
+            deviceType:
+            eleAddress:
+            userName:
+            status: -1
+            size: 10
+            page: 1
+    -
+       Describe: 指令消息日志-操作成功
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/message/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            deviceCode:
+            deviceType:
+            eleAddress:
+            userName:
+            status: 1
+            size: 10
+            page: 1
+    -
+       Describe: 指令消息日志-梯联终端
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/message/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            deviceCode:
+            deviceType: 1
+            eleAddress:
+            userName:
+            size: 10
+            page: 1
+    -
+       Describe: 指令消息日志-视频监测终端
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/message/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            deviceCode:
+            deviceType: 2
+            eleAddress:
+            userName:
+            size: 10
+            page: 1
+    -
+       Describe: 指令消息日志-智能屏显终端
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/device/message/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            startTime:
+            endTime:
+            deviceCode:
+            deviceType: 3
+            eleAddress:
+            userName:
+            size: 10
+            page: 1
+customer_wy_list:
+    -
+       Describe: 物业单位账号列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            username:
+            name:
+            mobile:
+            enable:
+            groupName:
+            size: 10
+            page: 1
+customer_wy_enable:
+    -
+       Describe: 物业单位客户-启用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 1
+            id: 495
+    -
+       Describe: 物业单位客户-禁用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 0
+            id: 495
+customer_wy_add:
+    -
+       Describe: 物业单位客户-新增
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/add
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: test
+            initPassword: 123456
+            mobile: 18888888888
+            name: xiaowang
+            username: xiaowang
+            isLoginPc: 1
+            isLoginApp: 0
+            villageIdList:
+              -
+                189
+            pcMenuList:
+              -
+                110
+              -
+                111
+              -
+                112
+              -
+                113
+              -
+                114
+            appMenuList:
+              -
+customer_wy_info:
+    -
+       Describe: 查看客户信息
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/info/region/list/496
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+customer_wy_update:
+    -
+       Describe: 物业单位客户-编辑客户信息
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/update
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: test
+            initPassword: "123456"
+            mobile: "18888888888"
+            name: xiaowang
+            username: xiaowang
+            isLoginPc: 1
+            isLoginApp: 0
+            villageIdList:
+              -
+                189
+            pcMenuList:
+              -
+                110
+              -
+                111
+              -
+                112
+              -
+                113
+              -
+                114
+            appMenuList:
+              -
+            id: 496
+customer_wy_reset:
+    -
+       Describe: 物业单位客户-重置密码
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/wy/admin/reset/password
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            id: 496
+customer_supervise_list:
+    -
+       Describe: 监管单位账号列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/supervise/admin/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            username:
+            name:
+            mobile:
+            enable:
+            groupName:
+            size: 10
+            page: 1
+customer_supervise_enable:
+    -
+       Describe: 监管单位客户-启用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/supervise/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 1
+            id: 495
+customer_supervise_info:
+    -
+       Describe: 监管单位客户-查看详情
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/supervise/admin/info/470
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+customer_supervise_add:
+    -
+       Describe: 监管单位客户-新增
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/supervise/admin/add
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: test
+            initPassword: 123456
+            mobile: 18888888888
+            name: xiaowang
+            username: xiaowang
+            isLoginPc: 1
+            isLoginApp: 0
+            villageIdList:
+              -
+                189
+            pcMenuList:
+              -
+                110
+              -
+                111
+              -
+                112
+              -
+                113
+              -
+                114
+            appMenuList:
+              -
+customer_supervise_update:
+    -
+       Describe: 监管单位客户-编辑
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/supervise/admin/update
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: test
+            initPassword: 123456
+            mobile: 18888888889
+            name: xiaowang
+            username: xiaowang
+            isLoginPc: 1
+            isLoginApp: 0
+            villageIdList:
+              -
+                189
+            pcMenuList:
+              -
+                110
+              -
+                111
+              -
+                112
+              -
+                113
+              -
+                114
+            appMenuList:
+              -
+            id: 470
+customer_supervise_reset:
+    -
+       Describe: 监管单位客户-重置密码
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/supervise/admin/reset/password
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            id: 496
+customer_mt_list:
+    -
+       Describe: 维保单位账号列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            username:
+            name:
+            mobile:
+            enable:
+            groupName:
+            size: 10
+            page: 1
+customer_mt_enable:
+    -
+       Describe: 维保单位客户-启用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 1
+            id: 471
+    -
+       Describe: 维保单位客户-禁用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 0
+            id: 471
+customer_mt_info:
+    -
+       Describe: 维保单位客户-查看详情
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/info/471
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+customer_mt_add:
+    -
+       Describe: 维保单位客户-新增
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/add
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: jsy
+            initPassword: 123456
+            mobile: 18888888888
+            name: dhm
+            username: dhm
+            isLoginPc: 1
+            isLoginApp: 0
+            villageIdList:
+              -
+                113
+              -
+                184
+            elevatorIdList:
+              -
+                219
+            pcMenuList:
+              -
+                274
+              -
+                275
+              -
+                112
+              -
+                283
+              -
+                284
+            appMenuList:
+              -
+customer_mt_update:
+    -
+       Describe: 维保单位客户-编辑
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/update
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: jsy
+            initPassword: 123456
+            mobile: 18888888899
+            name: dhm
+            username: dhm
+            isLoginPc: 1
+            isLoginApp: 0
+            villageIdList:
+              -
+                113
+              -
+                184
+            elevatorIdList:
+              -
+                219
+            pcMenuList:
+              -
+                274
+              -
+                275
+              -
+                112
+              -
+                283
+              -
+                284
+            appMenuList:
+              -
+            id: 471
+customer_mt_reset:
+    -
+       Describe: 维保单位客户-重置密码
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/mt/admin/reset/password
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            id: 471
+customer_ad_list:
+    -
+       Describe: 广告平台账号列表
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/ad/admin/list
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            username:
+            name:
+            mobile:
+            enable:
+            groupName:
+            size: 10
+            page: 1
+customer_ad_enable:
+    -
+       Describe: 广告平台-禁用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/ad/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 0
+            id: 202
+    -
+       Describe: 广告平台-启用
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/ad/admin/update/enable
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            enable: 1
+            id: 202
+customer_ad_info:
+    -
+       Describe: 广告平台-查看账号详情
+       Method: GET
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/ad/admin/info/202
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+customer_ad_reset:
+    -
+       Describe: 广告平台-账号重置密码
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/ad/admin/reset/password
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            id: 202
+customer_ad_update:
+    -
+       Describe: 广告平台-编辑账号
+       Method: POST
+       ApiUrl: jsy-api-ops-pc/ops/pc/customer/ad/admin/update
+       Headers:
+            Content-Type: application/json
+            SYSTEM_ID: '2'
+       Params:
+            groupName: 吉时语传媒
+            initPassword: 123456
+            mobile: 15512345678
+            name: admin
+            username: admin
+            isLoginPc: 1
+            isLoginApp: 1
+            provinceIdList:
+              -
+                1
+              -
+                11465
+              -
+                13135
+              -
+                21614
+              -
+                24382
+              -
+                31766
+            pcMenuList:
+              -
+                332
+              -
+                337
+              -
+                349
+              -
+                350
+              -
+                355
+              -
+                362
+              -
+                370
+              -
+                333
+              -
+                338
+              -
+                343
+              -
+                351
+              -
+                352
+              -
+                353
+              -
+                356
+              -
+                357
+              -
+                358
+              -
+                359
+              -
+                360
+              -
+                361
+              -
+                440
+              -
+                441
+              -
+                363
+              -
+                364
+              -
+                365
+              -
+                366
+              -
+                367
+              -
+                368
+              -
+                369
+              -
+                434
+              -
+                435
+              -
+                439
+            appMenuList:
+              -
+
+            id: 202
