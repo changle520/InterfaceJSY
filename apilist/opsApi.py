@@ -28,7 +28,7 @@ def send_requests(method,api,data=None,params=None,headers=None,files=None,appen
     if data:
         data=json.dumps(data)  #把post请求的data参数值转换成字符串
         #data=json.dumps(data,cls=DateEncoder)  data中如果有日期格式的可以用这个方法
-
+        data=data.replace("[null]","[]")  #把字符串中[null]替换成[],yaml文件中列表为空时读取后的值为[null]
     response = rq.request(method,url_api,data=data, params=params,headers=headers,files=files).json()
     return response
 

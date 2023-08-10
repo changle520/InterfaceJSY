@@ -84,7 +84,7 @@ def test_eleStatusDateType_004(login_start):
         #往请求头里面添加Authorization
         headers.update(Authorization)
         #发送请求
-        response=send_requests(method,apiurl,headers=headers)
+        response=send_requests(method,apiurl,headers=headers,params=params)
         #断言
         assert response['code']!=0
         assert response['msg']!="success"

@@ -1,0 +1,188 @@
+server:
+   Describe: 一台330屏的连接信息
+   broker: test.hzjishiyu.com
+   port: 1883
+   keepalive: 60
+DID330:
+   client_id: DID330&300133121210002
+   username: DID330&300133121210002
+   password: DID330&300133121210002&3c9951a811d745fbbda6f2a0843ccf19
+DID340:
+   client_id: DID340&300134121210008
+   username: DID340&300134121210008
+   password: DID340&300134121210008&515af789c7a64817abf4aadff4ac9f12
+   secret: 515af789c7a64817abf4aadff4ac9f12
+topic:
+   get_property:
+      sub: /device/DID340/300134121210008/thing/service/property/get_reply/
+      pub: /server/DID340/300134121210008/thing/service/property/get/
+   set_property:
+      sub: /device/DID340/300134121210008/thing/service/property/set_reply/
+      pub: /server/DID340/300134121210008/thing/service/property/set/
+   post_property:
+      sub: /server/DID340/300134121210008/thing/event/property/post_reply/
+      pub: /device/DID340/300134121210008/thing/event/property/post/
+   post_call:
+      sub: /server/DID340/300134121210008/thing/event/Call/post_reply/
+      pub: /device/DID340/300134121210008/thing/event/Call/post/
+   GetWeather_post:
+      sub: /server/DID340/300134121210008/thing/event/GetWeather/post_reply/
+      pub: /device/DID340/300134121210008/thing/event/GetWeather/post/
+   LiveData_post:
+      sub: /server/JTC340/100334121210009/thing/event/LiveData/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/LiveData/post/
+   RunStatistics_post:
+      sub: /server/JTC340/100334121210009/thing/event/RunStatistics/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/RunStatistics/post/
+   AlarmEvent_post:
+      sub: /server/JTC340/100334121210009/thing/event/AlarmEvent/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/AlarmEvent/post/
+   AlarmClose_post:
+      sub: /server/JTC340/100334121210009/thing/event/AlarmClose/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/AlarmClose/post/
+   LockEvent_post:
+      sub: /server/JTC340/100334121210009/thing/event/LockEvent/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/LockEvent/post/
+   LockClose_post:
+      sub: /server/JTC340/100334121210009/thing/event/LockClose/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/LockClose/post/
+   ErrorEvent_post:
+      sub: /server/JTC340/100334121210009/thing/event/ErrorEvent/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/ErrorEvent/post/
+   ErrorClose_post:
+      sub: /server/JTC340/100334121210009/thing/event/ErrorClose/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/ErrorClose/post/
+   SelfError_post:
+      sub: /server/JTC340/100334121210009/thing/event/SelfError/post_reply/
+      pub: /device/JTC340/100334121210009/thing/event/SelfError/post/
+msg:
+   get_property:
+      Version: 1.0
+      Params:
+         PropNames: DeviceInfo,ServerConfig
+   set_property:
+      Version: 1.0
+      Params:
+         PhoneConfig:
+            -
+               PhoneName: phone1
+               PhoneNo: 13000000000
+            -
+               PhoneName: phone2
+               PhoneNo: 13011111111
+         VoiceConfig:
+            -
+               StartTime: "09_00"
+               EndTime: "11_35"
+               Voice: 10
+            -
+               StartTime: "11_36"
+               EndTime: "23_59"
+               Voice: 30
+         SleepConfig:
+            -
+               StartTime: "19_00"
+               EndTime: "23_59"
+            -
+               StartTime: "00_01"
+               EndTime: "08_59"
+   post_property:
+      Version: 1.0
+      Params:
+         PhoneConfig:
+            -
+               PhoneName: phone1
+               PhoneNo: 13000000000
+            -
+               PhoneName: phone2
+               PhoneNo: 13011111111
+         VoiceConfig:
+            -
+               StartTime: "09_00"
+               EndTime: "11_35"
+               Voice: 0
+            -
+               StartTime: "11_36"
+               EndTime: "23_59"
+               Voice: 10
+         SleepConfig:
+            -
+               StartTime: "19_00"
+               EndTime: "23_59"
+            -
+               StartTime: "00_01"
+               EndTime: "08_59"
+   post_call:
+      Version: 1.0
+      Params:
+         Value:
+           CallTime: "2023/08/09 10:00:00"
+         Time: 1524448722000
+   GetWeather_post:
+      Version: 1.0
+      Params:
+         Time: 1524448722000
+   LiveData_post:
+      Version: 1.0
+      Params:
+         Value:
+            DoorState: 1
+            PersonState: 1
+            CurrentFloor: -2B
+            RunDirection: 1
+            RunState: 1
+   RunStatistics_post:
+      Version: 1.0
+      Params:
+         Value:
+            StartTime: "2021/4/14 00:00:00"
+            EndTime: "2021/4/15 00:00:00"
+            DoorToggleCount: 100
+            RunMins: 100
+            RunMileage: 100
+            RunCount: 100
+            RunMeters: 300
+         Time: 1524448722000
+   AlarmEvent_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+   AlarmClose_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+   LockEvent_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+   LockClose_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+   ErrorEvent_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+   ErrorClose_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+   SelfError_post:
+      Version: 1.0
+      Params:
+         Value:
+            ErrorCode: error
+         Time: 1524448722000
+
