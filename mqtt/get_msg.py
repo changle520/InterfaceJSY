@@ -5,9 +5,9 @@ import json
 readFileData=ReadFileData()
 data=readFileData.get_data('test_data/ParamYaml','mqtt_config.yml')
 
-def get_msg_pub(name):
+def get_msg_pub(message):
     '''获取发布消息的msg'''
-    msg =data['msg'][name]
+    msg =message
     # mqtt只能传输字符串数据
     return json.dumps(msg)
 

@@ -7,59 +7,65 @@ DID330:
    client_id: DID330&300133121210002
    username: DID330&300133121210002
    password: DID330&300133121210002&3c9951a811d745fbbda6f2a0843ccf19
+   productKey: DID330
+   deviceName: 300133121210002
+DID330_2:
+   productKey: DID330
+   deviceName: 300133123050002
+   secret: c07d359b30de4997a586f5489d7fce7a
 DID340:
    client_id: DID340&300134121210008
    username: DID340&300134121210008
    password: DID340&300134121210008&515af789c7a64817abf4aadff4ac9f12
    secret: 515af789c7a64817abf4aadff4ac9f12
+   productKey: DID340
+   deviceName: 300134121210008
+JTC340:
+   productKey: JTC340
+   deviceName: 100334121210009
+   Secret: d5e214693c9348228f50b977b61cf2e7
 topic:
    get_property:
-      sub: /device/DID340/300134121210008/thing/service/property/get_reply/
-      pub: /server/DID340/300134121210008/thing/service/property/get/
+      sub: /device/{}/{}/thing/service/property/get_reply/
+      pub: /server/{}/{}/thing/service/property/get/
    set_property:
-      sub: /device/DID340/300134121210008/thing/service/property/set_reply/
-      pub: /server/DID340/300134121210008/thing/service/property/set/
+      sub: /device/{}/{}/thing/service/property/set_reply/
+      pub: /server/{}/{}/thing/service/property/set/
    post_property:
-      sub: /server/DID340/300134121210008/thing/event/property/post_reply/
-      pub: /device/DID340/300134121210008/thing/event/property/post/
+      sub: /server/{}/{}/thing/event/property/post_reply/
+      pub: /device/{}/{}/thing/event/property/post/
    post_call:
-      sub: /server/DID340/300134121210008/thing/event/Call/post_reply/
-      pub: /device/DID340/300134121210008/thing/event/Call/post/
+      sub: /server/{}/{}/thing/event/Call/post_reply/
+      pub: /device/{}/{}/thing/event/Call/post/
    GetWeather_post:
-      sub: /server/DID340/300134121210008/thing/event/GetWeather/post_reply/
-      pub: /device/DID340/300134121210008/thing/event/GetWeather/post/
+      sub: /server/{}/{}/thing/event/GetWeather/post_reply/
+      pub: /device/{}/{}/thing/event/GetWeather/post/
    LiveData_post:
-      sub: /server/JTC340/100334121210009/thing/event/LiveData/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/LiveData/post/
+      sub: /server/{}/{}/thing/event/LiveData/post_reply/
+      pub: /device/{}/{}/thing/event/LiveData/post/
    RunStatistics_post:
-      sub: /server/JTC340/100334121210009/thing/event/RunStatistics/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/RunStatistics/post/
-   AlarmEvent_post:
-      sub: /server/JTC340/100334121210009/thing/event/AlarmEvent/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/AlarmEvent/post/
-   AlarmClose_post:
-      sub: /server/JTC340/100334121210009/thing/event/AlarmClose/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/AlarmClose/post/
-   LockEvent_post:
-      sub: /server/JTC340/100334121210009/thing/event/LockEvent/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/LockEvent/post/
-   LockClose_post:
-      sub: /server/JTC340/100334121210009/thing/event/LockClose/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/LockClose/post/
+      sub: /server/{}/{}/thing/event/RunStatistics/post_reply/
+      pub: /device/{}/{}/thing/event/RunStatistics/post/
+   ntp_post:
+      sub: /server/{}/{}/thing/event/ntp/post_reply/
+      pub: /device/{}/{}/thing/event/ntp/post/
+   post_property_JTC340:
+      sub: /server/{}/{}/thing/event/property/post_reply/
+      pub: /device/{}/{}/thing/event/property/post/
+   service_upgrade:
+      sub: /device/{}/{}/thing/service/upgrade_reply/
+      pub: /server/{}/{}/thing/service/upgrade/
    ErrorEvent_post:
-      sub: /server/JTC340/100334121210009/thing/event/ErrorEvent/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/ErrorEvent/post/
+      sub: /server/{}/{}/thing/event/ErrorEvent/post_reply/
+      pub: /device/{}/{}/thing/event/ErrorEvent/post/
    ErrorClose_post:
-      sub: /server/JTC340/100334121210009/thing/event/ErrorClose/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/ErrorClose/post/
-   SelfError_post:
-      sub: /server/JTC340/100334121210009/thing/event/SelfError/post_reply/
-      pub: /device/JTC340/100334121210009/thing/event/SelfError/post/
+      sub: /server/{}/{}/thing/event/ErrorClose/post_reply/
+      pub: /device/{}/{}/thing/event/ErrorClose/post/
 msg:
    get_property:
       Version: 1.0
       Params:
-         PropNames: DeviceInfo,ServerConfig
+         PropNames: ServerConfig
    set_property:
       Version: 1.0
       Params:
@@ -143,46 +149,183 @@ msg:
             RunCount: 100
             RunMeters: 300
          Time: 1524448722000
-   AlarmEvent_post:
+   ntp_post:
       Version: 1.0
+      DSTime: 1571724098000
+   property_post_JTC340:
+      -
+         Version: 1.0
+         Params:
+            PropNames: DeviceInfo
+      -
+         Version: 1.0
+         Params:
+            PropNames: ServerConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: ErrorConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: FloorConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: PowerState
+      -
+         Version: 1.0
+         Params:
+            PropNames: SelfCheckConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: OtherConfig
+   service_upgrade:
+      Version: "1.0"
       Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
-   AlarmClose_post:
-      Version: 1.0
+         deviceWriteType: ECT_UPGRADE_340
+         Version: 103.34.23.0616
+         Hash: 7A06CC0BA104B3E11687E2DD2FE0D882
+         Url: https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-5K80jGXRLrtthread.rbl
+   set_property_JTC340:
+      Version: "1.0"
       Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
-   LockEvent_post:
-      Version: 1.0
-      Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
-   LockClose_post:
-      Version: 1.0
-      Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
+         deviceWriteType: ECT_UPGRADE_340
+         ErrorConfig:
+            BlockDoor: 45
+            DoorRepeat: 4
+            StayTrapped: 1
+            StatusManage: 0
+            OutSideTrapped: 1
+            DoorError: 5
+            StatyLockTimeOut: 180
+            LockTimeOut: 30
    ErrorEvent_post:
-      Version: 1.0
-      Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1001
+               ErrorTime: "2023-08-16 16:25:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1002
+               ErrorTime: "2023-08-16 16:26:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1003
+               ErrorTime: "2023-08-16 16:27:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1004
+               ErrorTime: "2023-08-16 16:28:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1005
+               ErrorTime: "2023-08-16 16:29:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1006
+               ErrorTime: "2023-08-16 16:30:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1007
+               ErrorTime: "2023-08-16 16:31:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1008
+               ErrorTime: "2023-08-16 16:32:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1009
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
    ErrorClose_post:
-      Version: 1.0
-      Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
-   SelfError_post:
-      Version: 1.0
-      Params:
-         Value:
-            ErrorCode: error
-         Time: 1524448722000
-
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1001
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1002
+               CloseTime: "2023-08-16 16:29:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1003
+               CloseTime: "2023-08-16 16:30:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1004
+               CloseTime: "2023-08-16 16:31:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1005
+               CloseTime: "2023-08-16 16:32:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1006
+               CloseTime: "2023-08-16 16:33:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1007
+               CloseTime: "2023-08-16 16:34:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1008
+               CloseTime: "2023-08-16 16:35:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1009
+               CloseTime: "2023-08-16 16:36:07"
+            Time: 1692167117

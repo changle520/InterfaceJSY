@@ -13,6 +13,8 @@ Logging()
 readFileData=ReadFileData()
 data=readFileData.get_data('test_data/ParamYaml','mqtt_config.yml')
 
+productKey = data['DID330_2']['productKey']
+deviceName = data['DID330_2']['deviceName']
 
 
 #   //以下是测试用例//
@@ -21,7 +23,8 @@ data=readFileData.get_data('test_data/ParamYaml','mqtt_config.yml')
 @allure.title("获取设备端属性")
 @allure.description("")
 def test_get_property_001():
-      run("get_property")
+      msg = data['msg']['get_property']
+      run("get_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象
       msg_str=read_submsg()
       msg_data=get_msg_sub(msg_str)
@@ -29,14 +32,15 @@ def test_get_property_001():
       #断言
       logging.info(f"实际订阅结果:{msg_data}")
       assert msg_data['Code']==1
-      assert msg_data['Data']['ServerConfig']['Secret']==data['DID340']['secret']
+      assert msg_data['Data']['ServerConfig']['Secret']==data['DID330_2']['secret']
 
 @allure.feature("DID340显示屏测试")
 @allure.story("设置属性")
 @allure.title("设置设备端属性")
 @allure.description("")
 def test_set_property_001():
-      run("set_property")
+      msg = data['msg']['set_property']
+      run("set_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象
       msg_str=read_submsg()
       msg_data=get_msg_sub(msg_str)
@@ -50,7 +54,8 @@ def test_set_property_001():
 @allure.title("上报设备属性")
 @allure.description("")
 def test_post_property_001():
-      run("post_property")
+      msg = data['msg']['post_property']
+      run("post_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象
       msg_str=read_submsg()
       msg_data=get_msg_sub(msg_str)
@@ -64,7 +69,8 @@ def test_post_property_001():
 @allure.title("设备申请通话")
 @allure.description("")
 def test_post_call_001():
-      run("post_call")
+      msg = data['msg']['post_call']
+      run("post_call",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象
       msg_str=read_submsg()
       msg_data=get_msg_sub(msg_str)
@@ -78,7 +84,8 @@ def test_post_call_001():
 @allure.title("获取气象信息")
 @allure.description("")
 def test_GetWeather_post_001():
-      run("GetWeather_post")
+      msg = data['msg']['GetWeather_post']
+      run("GetWeather_post",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象
       msg_str=read_submsg()
       msg_data=get_msg_sub(msg_str)
@@ -87,33 +94,7 @@ def test_GetWeather_post_001():
       logging.info(f"实际订阅结果:{msg_data}")
       assert msg_data['Code']==200
 
-@allure.feature("DID340显示屏测试")
-@allure.story("实时数据上报")
-@allure.title("设备端上报实时数据")
-@allure.description("")
-def test_LiveData_post_001():
-      run("LiveData_post")
-      #从文件中获取订阅到的消息并转换为字典对象
-      msg_str=read_submsg()
-      msg_data=get_msg_sub(msg_str)
 
-      #断言
-      logging.info(f"实际订阅结果:{msg_data}")
-      assert msg_data['Code']==200
-
-@allure.feature("DID340显示屏测试")
-@allure.story("运行累计数据上报")
-@allure.title("运行累计数据上报")
-@allure.description("")
-def test_RunStatistics_post_001():
-      run("RunStatistics_post")
-      #从文件中获取订阅到的消息并转换为字典对象
-      msg_str=read_submsg()
-      msg_data=get_msg_sub(msg_str)
-
-      #断言
-      logging.info(f"实际订阅结果:{msg_data}")
-      assert msg_data['Code']==200
 
 
 

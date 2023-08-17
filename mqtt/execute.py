@@ -48,13 +48,13 @@ def connect_mqtt():
 
     return client
 
-def publish(client,topic,name):
+def publish(client,topic,name,msg):
     '''发布消息'''
 
     for num in range(2):
         '''每隔2秒发布一次'''
         time.sleep(2)
-        msg=get_msg_pub(name)
+        msg=get_msg_pub(msg)
         result=client.publish(topic,msg,qos=2)
         status=result[0]
         if status==0:
@@ -70,7 +70,6 @@ def subscribe(client,topic):
         rlt=msg.payload.decode()
         # rlt_data=get_msg_sub(rlt)
         logging.info(f"订阅的主题:{topic},订阅的消息返回:{rlt}")
-        print(rlt)
         if rlt:
             save_submsg(rlt)
         # 订阅指定消息主题
@@ -88,25 +87,32 @@ def disconnect(client):
     client.disconnect()  # 断开连接
     logging.info("断开连接")
 
-def sub_pub_byName(client,name):
+def sub_pub_byName(client,name,msg,productKey,deviceName):
     '''根据name执行订阅、发布'''
     curtime = get_time()  # 获取当前时间戳
     topic_pub = data['topic'][name]['pub'] + curtime  # 发布的消息主题
     topic_sub = data['topic'][name]['sub'] + curtime  # 订阅的消息主题
+    topic_pub=topic_pub.format(productKey,deviceName)
+    topic_sub=topic_sub.format(productKey,deviceName)
     subscribe(client,topic_sub)
-    publish(client,topic_pub,name)
+    publish(client,topic_pub,name,msg)
 
 
-
-def run(name):
+def run(name,msg,productKey,deviceName):
     '''执行动作：连接服务器、订阅、发布消息
         name:根据传入的name值获取对应的发布主题和订阅主题
+        msg:发布消息时传的参数
+        productKey:产品编号
+        deviceName：设备编号
     '''
     client=connect_mqtt()
     #运行一个线程来自动调用loop()处理网络事件，非阻塞
     client.loop_start()
-    sub_pub_byName(client,name)
+    sub_pub_byName(client,name,msg,productKey,deviceName)
     disconnect(client)
 
 if __name__=="__main__":
-        run("get_property")
+        productKey=data['JTC340']['productKey']
+        deviceName=data['JTC340']['deviceName']
+        msg=data['msg']['get_property']
+        run("get_property",msg,productKey,deviceName)
