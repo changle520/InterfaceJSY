@@ -1,0 +1,14 @@
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/open/cloud/v1/video/save?accessToken=at.9yfoaxcc52byyeb6axodgy376hthz2mq-4qquly6emk-13j708s-cgicq81ap&recType=local&deviceSerial=C39204040&channelNo=1&startTime=20230711092500&endTime=20230711093200&projectId=JSY_Test001&fileId=C39204040_1_2 HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : save
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/open/cloud/v1/video/save?accessToken=at.9yfoaxcc52byyeb6axodgy376hthz2mq-4qquly6emk-13j708s-cgicq81ap&recType=local&deviceSerial=C39204040&channelNo=1&startTime=20230711092500&endTime=20230711093200&projectId=JSY_Test001&fileId=C39204040_1_2
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'accessToken': 'at.9yfoaxcc52byyeb6axodgy376hthz2mq-4qquly6emk-13j708s-cgicq81ap', 'recType': 'local', 'deviceSerial': 'C39204040', 'channelNo': 1, 'startTime': 20230711092500, 'endTime': 20230711093200, 'projectId': 'JSY_Test001', 'fileId': 'C39204040_1_2'}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.735326 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'meta': {'code': 400, 'message': '设备[C39204040]未搜索到本地录像', 'moreInfo': None}, 'data': None}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------
