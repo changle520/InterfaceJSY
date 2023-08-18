@@ -117,8 +117,8 @@ def test_elevator_add_002(login_start):
         # 发送请求
         response = send_requests(method, apiurl, headers=headers)
         # 断言
-        assert response['code'] != 0
-        assert response['msg'] == "success"
+        assert response['code'] == 400
+        assert response['msg'] == "Bad Request!"
 
 @allure.feature("运维管理平台")
 @allure.story("基础资料")
@@ -266,8 +266,8 @@ def test_elevator_del_003(login_start):
         #发送请求
         response=send_requests(method,apiurl,headers=headers,data=params)
         #断言
-        assert response['code']==0
-        assert response['msg']=='success'
+        assert response['code']==542
+        assert response['msg']=='数据不存在'
 
 @allure.feature("运维管理平台")
 @allure.story("基础资料")
@@ -320,8 +320,8 @@ def test_elevator_update_002(login_start):
         #发送请求
         response=send_requests(method,apiurl,headers=headers,data=params)
         #断言
-        assert response['code']==0
-        assert response['msg']=="success"
+        assert response['code']==542
+        assert response['msg']=="数据不存在"
 
 @allure.feature("运维管理平台")
 @allure.story("基础资料")

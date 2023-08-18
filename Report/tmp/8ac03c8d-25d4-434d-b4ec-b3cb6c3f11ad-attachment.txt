@@ -1,0 +1,14 @@
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/open/cloud/ISAPI/Event/notification/subscribeEvent?deviceSerial=L42155091&accessToken=at.1oi0an2kd4diigoidaipbb0z1s4uacr6-4uagmht6ca-0hx69vd-bxmt373vj HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : subscribeEvent
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/open/cloud/ISAPI/Event/notification/subscribeEvent?deviceSerial=L42155091&accessToken=at.1oi0an2kd4diigoidaipbb0z1s4uacr6-4uagmht6ca-0hx69vd-bxmt373vj
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'deviceSerial': 'L42155091', 'accessToken': 'at.1oi0an2kd4diigoidaipbb0z1s4uacr6-4uagmht6ca-0hx69vd-bxmt373vj'}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.173158 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'meta': {'code': 200, 'message': '操作成功', 'moreInfo': None}, 'data': '<?xml version="1.0" encoding="UTF-8"?>\n<ResponseStatus version="2.0" xmlns="http://www.hikvision.com/ver20/XMLSchema">\n<requestURL></requestURL>\n<statusCode>4</statusCode>\n<statusString>Invalid Operation</statusString>\n<subStatusCode>methodNotAllowed</subStatusCode>\n</ResponseStatus>\n'}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------

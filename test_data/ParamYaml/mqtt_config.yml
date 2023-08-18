@@ -61,6 +61,27 @@ topic:
    ErrorClose_post:
       sub: /server/{}/{}/thing/event/ErrorClose/post_reply/
       pub: /device/{}/{}/thing/event/ErrorClose/post/
+   LockEvent_post:
+      sub: /server/{}/{}/thing/event/LockEvent/post_reply/
+      pub: /device/{}/{}/thing/event/LockEvent/post/
+   LockClose_post:
+      sub: /server/{}/{}/thing/event/LockClose/post_reply/
+      pub: /device/{}/{}/thing/event/LockClose/post/
+   SelfError_post:
+      sub: /server/{}/{}/thing/event/SelfError/post_reply/
+      pub: /device/{}/{}/thing/event/SelfError/post/
+   AlarmEvent_post:
+      sub: /server/{}/{}/thing/event/AlarmEvent/post_reply/
+      pub: /device/{}/{}/thing/event/AlarmEvent/post/
+   AlarmClose_post:
+      sub: /server/{}/{}/thing/event/AlarmClose/post_reply/
+      pub: /device/{}/{}/thing/event/AlarmClose/post/
+   service_reboot:
+      sub: /device/{}/{}/thing/service/reboot_reply/
+      pub: /server/{}/{}/thing/service/reboot/
+   service_getlog:
+      sub: /device/{}/{}/thing/service/getlog_reply/
+      pub: /server/{}/{}/thing/service/getlog/
 msg:
    get_property:
       Version: 1.0
@@ -152,7 +173,7 @@ msg:
    ntp_post:
       Version: 1.0
       DSTime: 1571724098000
-   property_post_JTC340:
+   get_property_JTC340:
       -
          Version: 1.0
          Params:
@@ -201,6 +222,67 @@ msg:
             DoorError: 5
             StatyLockTimeOut: 180
             LockTimeOut: 30
+   post_property_JTC340:
+      -
+         Version: "1.0"
+         Params:
+            ErrorConfig:
+               BlockDoor: 45
+               DoorRepeat: 4
+               StayTrapped: 1
+               StatusManage: 0
+               OutSideTrapped: 1
+               DoorError: 5
+               StatyLockTimeOut: 180
+               LockTimeOut: 30
+      -
+         Version: "1.0"
+         Params:
+            FloorConfig:
+               FloorTable: "-1,1,2,3,4,5"
+               BaseFloor: "1"
+               Nfloors: "-1"
+               SkipFloors: ""
+               MaxFloor: 5
+               FloorHeight: 300
+      -
+        Version: "1.0"
+        Params:
+           ServerConfig:
+              ServerAddress: test.hzjishiyu.com
+              ServerPort: 1883
+              KeepAlive: 10
+              CleanSession: 0
+              Secret: d5e214693c9348228f50b977b61cf2e7
+      -
+        Version: "1.0"
+        Params:
+           SelfCheckConfig:
+              ErrorNum: 24
+      -
+        Version: "1.0"
+        Params:
+           PowerState:
+              -
+                 Module: 1
+                 Toggle: 1
+              -
+                 Module: 2
+                 Toggle: 1
+              -
+                 Module: 3
+                 Toggle: 1
+      -
+        Version: "1.0"
+        Params:
+           OtherConfig:
+              RunReportTime: 1
+              IsRepair: 0
+      -
+        Version: "1.0"
+        Params:
+           StaticIp:
+              IP: "192.168.0.28"
    ErrorEvent_post:
       -
          Version: "1.0"
@@ -329,3 +411,115 @@ msg:
                ErrorType: 1009
                CloseTime: "2023-08-16 16:36:07"
             Time: 1692167117
+   LockEvent_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 1
+               LockTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 2
+               LockTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 0
+               LockTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   LockClose_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 1
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 2
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 0
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   SelfError_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3001
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3002
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3003
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3004
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   AlarmEvent_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2002
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2003
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   AlarmClose_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2002
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2003
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   service_reboot:
+      Version: "1.0"
+      Params:
+   service_getlog:
+      Version: "1.0"
+      Params:
+         deviceWriteType: ECT_GET_LOG_340
+         FileUploadServerUrl: http://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/file/ectlog_upload
+         SaasId: "1"

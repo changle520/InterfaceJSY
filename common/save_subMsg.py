@@ -20,8 +20,9 @@ def save_submsg(msg):
 
 def read_submsg():
     '''读取文件中的订阅消息、用作断言'''
-    with open(filename,"r",encoding='utf-8') as f1:
+    with open(filename,"r+",encoding='utf-8') as f1:
        msg=f1.read()
+       f1.truncate(0)#读完后将内容清除掉
     return msg
 
 

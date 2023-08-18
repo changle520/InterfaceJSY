@@ -1,7 +1,0 @@
-{
-	"Code":	200,
-	"Rate":	1,
-	"ErrorMsg":	"",
-	"Data":	{
-	}
-}

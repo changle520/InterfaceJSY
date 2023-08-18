@@ -5,9 +5,12 @@ import logging
 from common.logger import Logging
 from common.hashlibSHA1 import password_md5
 from common.get_time import get_time
-from mqtt.get_msg import get_msg_pub,get_msg_sub
+from mqtt.get_msg import get_msg_pub
 from common.save_subMsg import save_submsg
 Logging()
+import threading
+
+
 #实例化读取配置文件的类,获取配置文件
 readFileData=ReadFileData()
 data=readFileData.get_data('test_data/ParamYaml','mqtt_config.yml')
@@ -48,10 +51,10 @@ def connect_mqtt():
 
     return client
 
-def publish(client,topic,name,msg):
+def publish(client,topic,msg):
     '''发布消息'''
 
-    for num in range(2):
+    for num in range(1):
         '''每隔2秒发布一次'''
         time.sleep(2)
         msg=get_msg_pub(msg)
@@ -62,6 +65,7 @@ def publish(client,topic,name,msg):
 
         else:
             logging.info(f"发布失败，发布的主题:{topic},返回的状态码:{status}")
+        time.sleep(1) #睡眠1秒，保证订阅已开启,能收到
 
 def subscribe(client,topic):
     '''订阅主题并接收消息'''
@@ -75,6 +79,7 @@ def subscribe(client,topic):
         # 订阅指定消息主题
     client.subscribe(topic,qos=2)
     client.on_message = on_message
+
 # 取消订阅
 def unsubscribe(topic,client):
     client.unsubscribe(topic)
@@ -87,17 +92,6 @@ def disconnect(client):
     client.disconnect()  # 断开连接
     logging.info("断开连接")
 
-def sub_pub_byName(client,name,msg,productKey,deviceName):
-    '''根据name执行订阅、发布'''
-    curtime = get_time()  # 获取当前时间戳
-    topic_pub = data['topic'][name]['pub'] + curtime  # 发布的消息主题
-    topic_sub = data['topic'][name]['sub'] + curtime  # 订阅的消息主题
-    topic_pub=topic_pub.format(productKey,deviceName)
-    topic_sub=topic_sub.format(productKey,deviceName)
-    subscribe(client,topic_sub)
-    publish(client,topic_pub,name,msg)
-
-
 def run(name,msg,productKey,deviceName):
     '''执行动作：连接服务器、订阅、发布消息
         name:根据传入的name值获取对应的发布主题和订阅主题
@@ -108,11 +102,32 @@ def run(name,msg,productKey,deviceName):
     client=connect_mqtt()
     #运行一个线程来自动调用loop()处理网络事件，非阻塞
     client.loop_start()
-    sub_pub_byName(client,name,msg,productKey,deviceName)
+
+    curtime = get_time()  # 获取当前时间戳
+    topic_p = data['topic'][name]['pub'] + curtime  # 发布的消息主题
+    topic_s = data['topic'][name]['sub'] + curtime  # 订阅的消息主题
+    topic_pub=topic_p.format(productKey,deviceName)
+    topic_sub=topic_s.format(productKey,deviceName)
+
+    #订阅线程
+    thread1=threading.Thread(target=subscribe,args=(client,topic_sub))
+    #发布线程
+    thread2=threading.Thread(target=publish,args=(client,topic_pub,msg))
+
+    thread1.start()
+    thread2.start()
+
+    thread1.join()
+    thread2.join()
+
+    #断开连接
     disconnect(client)
 
+
+
 if __name__=="__main__":
-        productKey=data['JTC340']['productKey']
-        deviceName=data['JTC340']['deviceName']
+        productKey=data['DID330_2']['productKey']
+        deviceName=data['DID330_2']['deviceName']
         msg=data['msg']['get_property']
         run("get_property",msg,productKey,deviceName)
+

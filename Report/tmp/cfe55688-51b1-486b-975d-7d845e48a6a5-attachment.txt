@@ -1,0 +1,14 @@
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/lapp/mq/v2/consumer/messages?accessToken=at.03a411sc1o01yzuacb05abgz0et2gzde-6pn1dn2c2d-0odq6xt-m3agspmoi&consumerId=5143e78fe69e4c2ab06cc3002a0aebcf HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : messages
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/lapp/mq/v2/consumer/messages?accessToken=at.03a411sc1o01yzuacb05abgz0et2gzde-6pn1dn2c2d-0odq6xt-m3agspmoi&consumerId=5143e78fe69e4c2ab06cc3002a0aebcf
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'accessToken': 'at.03a411sc1o01yzuacb05abgz0et2gzde-6pn1dn2c2d-0odq6xt-m3agspmoi', 'consumerId': '5143e78fe69e4c2ab06cc3002a0aebcf'}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 3.165076 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'code': '200', 'msg': '操作成功', 'data': [], 'offsets': None}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------

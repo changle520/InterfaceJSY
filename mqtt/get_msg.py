@@ -9,8 +9,14 @@ def get_msg_pub(message):
     '''获取发布消息的msg'''
     msg =message
     # mqtt只能传输字符串数据
-    return json.dumps(msg)
+    if isinstance(msg,dict):
+        msg=json.dumps(msg)
+    return msg
 
 def get_msg_sub(msg):
     '''获取订阅消息返回的msg，并转换成对象'''
     return json.loads(msg)
+
+if __name__=="__main__":
+    a=get_msg_pub('{"name":"cl"}')
+    print(a,type(a))

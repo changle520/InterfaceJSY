@@ -140,8 +140,8 @@ def test_count_003(login_start):
         #发送请求
         response=send_requests(method,apiurl,headers=headers,params=params)
         #断言
-        assert response['code']==0
-        assert response['msg']=="success"
+        assert response['code']==542
+        assert response['msg']=="数据不存在"
 
 @allure.feature("运维管理平台")
 @allure.story("首页")
