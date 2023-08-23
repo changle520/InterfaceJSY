@@ -5,6 +5,7 @@ from common.save_subMsg import read_submsg
 from common.logger import Logging
 from mqtt.execute import run
 from mqtt.get_msg import get_msg_sub
+from common.get_time import get_datetime
 import logging
 Logging()
 
@@ -70,6 +71,9 @@ def test_post_property_001():
 @allure.description("")
 def test_post_call_001():
       msg = data['msg']['post_call']
+      # 获取当前时间的字符串格式并赋值给msg
+      CallTime = get_datetime()
+      msg['Params']['Value']['CallTime'] = CallTime
       run("post_call",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象
       msg_str=read_submsg()

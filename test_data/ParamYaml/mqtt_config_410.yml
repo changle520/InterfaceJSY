@@ -1,0 +1,637 @@
+server:
+   Describe: 一台330屏的连接信息
+   broker: test.hzjishiyu.com
+   port: 1883
+   keepalive: 60
+DID330:
+   client_id: DID330&300133121210002
+   username: DID330&300133121210002
+   password: DID330&300133121210002&3c9951a811d745fbbda6f2a0843ccf19
+   productKey: DID330
+   deviceName: 300133121210002
+DID340:
+   client_id: DID340&300134121210008
+   username: DID340&300134121210008
+   password: DID340&300134121210008&515af789c7a64817abf4aadff4ac9f12
+   secret: 515af789c7a64817abf4aadff4ac9f12
+   productKey: DID340
+   deviceName: 300134121210008
+JTC410:
+   productKey: JTC410
+   deviceName:
+   Secret:
+topic:
+   get_property:
+      sub: /device/{}/{}/thing/service/property/get_reply/
+      pub: /server/{}/{}/thing/service/property/get/
+   set_property:
+      sub: /device/{}/{}/thing/service/property/set_reply/
+      pub: /server/{}/{}/thing/service/property/set/
+   post_property:
+      sub: /server/{}/{}/thing/event/property/post_reply/
+      pub: /device/{}/{}/thing/event/property/post/
+   post_call:
+      sub: /server/{}/{}/thing/event/Call/post_reply/
+      pub: /device/{}/{}/thing/event/Call/post/
+   GetWeather_post:
+      sub: /server/{}/{}/thing/event/GetWeather/post_reply/
+      pub: /device/{}/{}/thing/event/GetWeather/post/
+   LiveData_post:
+      sub: /server/{}/{}/thing/event/LiveData/post_reply/
+      pub: /device/{}/{}/thing/event/LiveData/post/
+   RunStatistics_post:
+      sub: /server/{}/{}/thing/event/RunStatistics/post_reply/
+      pub: /device/{}/{}/thing/event/RunStatistics/post/
+   ntp_post:
+      sub: /server/{}/{}/thing/event/ntp/post_reply/
+      pub: /device/{}/{}/thing/event/ntp/post/
+   post_property_JTC340:
+      sub: /server/{}/{}/thing/event/property/post_reply/
+      pub: /device/{}/{}/thing/event/property/post/
+   service_upgrade:
+      sub: /device/{}/{}/thing/service/upgrade_reply/
+      pub: /server/{}/{}/thing/service/upgrade/
+   ErrorEvent_post:
+      sub: /server/{}/{}/thing/event/ErrorEvent/post_reply/
+      pub: /device/{}/{}/thing/event/ErrorEvent/post/
+   ErrorClose_post:
+      sub: /server/{}/{}/thing/event/ErrorClose/post_reply/
+      pub: /device/{}/{}/thing/event/ErrorClose/post/
+   LockEvent_post:
+      sub: /server/{}/{}/thing/event/LockEvent/post_reply/
+      pub: /device/{}/{}/thing/event/LockEvent/post/
+   LockClose_post:
+      sub: /server/{}/{}/thing/event/LockClose/post_reply/
+      pub: /device/{}/{}/thing/event/LockClose/post/
+   SelfError_post:
+      sub: /server/{}/{}/thing/event/SelfError/post_reply/
+      pub: /device/{}/{}/thing/event/SelfError/post/
+   AlarmEvent_post:
+      sub: /server/{}/{}/thing/event/AlarmEvent/post_reply/
+      pub: /device/{}/{}/thing/event/AlarmEvent/post/
+   AlarmClose_post:
+      sub: /server/{}/{}/thing/event/AlarmClose/post_reply/
+      pub: /device/{}/{}/thing/event/AlarmClose/post/
+   service_reboot:
+      sub: /device/{}/{}/thing/service/reboot_reply/
+      pub: /server/{}/{}/thing/service/reboot/
+   service_getlog:
+      sub: /device/{}/{}/thing/service/getlog_reply/
+      pub: /server/{}/{}/thing/service/getlog/
+msg:
+   get_property:
+      -
+         Version: 1.0
+         Params:
+            PropNames: DeviceInfo
+      -
+         Version: 1.0
+         Params:
+            PropNames: ServerConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: ErrorConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: EventConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: FloorTable
+      -
+         Version: 1.0
+         Params:
+            PropNames: PowerState
+      -
+         Version: 1.0
+         Params:
+            PropNames: OtherConfig
+   service_upgrade:
+      Version: "1.0"
+      Params:
+         deviceWriteType: ECT_UPGRADE_410
+         Version: 103.34.23.0616
+         Hash: 7A06CC0BA104B3E11687E2DD2FE0D882
+         Url: https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-5K80jGXRLrtthread.rbl
+   set_property:
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            ErrorConfig:
+               ReapeatedDoor: 0
+               ClosedDoor: 0
+               OpenDoor: 0
+               ElevatorTop: 0
+               AccidentalMove: 0
+               OutsidePark: 0
+               MainPowerOutage: 0
+               ElevatorOverspeed: 0
+               EmergencyStop: 0
+               OpenDoorWalk: 0
+               NoFault: 0
+               SafetyCircuitError: 0
+               UnknownError: 0
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            ErrorConfig:
+               ReapeatedDoor: 1
+               ClosedDoor: 1
+               OpenDoor: 1
+               ElevatorTop: 1
+               AccidentalMove: 1
+               OutsidePark: 1
+               MainPowerOutage: 1
+               ElevatorOverspeed: 1
+               EmergencyStop: 1
+               OpenDoorWalk: 1
+               NoFault: 1
+               SafetyCircuitError: 1
+               UnknownError: 1
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            EventConfig:
+               TrappedOutside: 1
+               TrappedLevelOutside: 1
+               TrappedLevelInside: 1
+               TrappedOther: 1
+               ReapeatedDoor: 1
+               LongDoorBlock: 1
+               OneClickAlarm: 1
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            EventConfig:
+               TrappedOutside: 0
+               TrappedLevelOutside: 0
+               TrappedLevelInside: 0
+               TrappedOther: 0
+               ReapeatedDoor: 0
+               LongDoorBlock: 0
+               OneClickAlarm: 0
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            FloorTable:
+               total: 22
+               base: 1
+               FloorTable: [1,2,3,4,5,6]
+               Index: 1
+               FloorNum: 1
+               FloorName: 1楼
+               FloorHeight: 300
+               Atmos: 123456
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            ServerConfig:
+               ServerAddress: test.hzjishiyu.com
+               ServerPort: 1883
+               KeepAlive: 10
+               CleanSession: 0
+               Secret: d5e214693c9348228f50b977b61cf2e7
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_410
+            SelfCheckConfig:
+               ErrorNum: 24
+   post_property:
+      -
+         Version: "1.0"
+         Params:
+            ErrorConfig:
+               ReapeatedDoor: 0
+               ClosedDoor: 0
+               OpenDoor: 0
+               ElevatorTop: 0
+               AccidentalMove: 0
+               OutsidePark: 0
+               MainPowerOutage: 0
+               ElevatorOverspeed: 0
+               EmergencyStop: 0
+               OpenDoorWalk: 0
+               NoFault: 0
+               SafetyCircuitError: 0
+               UnknownError: 0
+      -
+         Version: "1.0"
+         Params:
+            EventConfig:
+               TrappedOutside: 1
+               TrappedLevelOutside: 1
+               TrappedLevelInside: 1
+               TrappedOther: 1
+               ReapeatedDoor: 1
+               LongDoorBlock: 1
+               OneClickAlarm: 1
+      -
+         Version: "1.0"
+         Params:
+            FloorTable:
+               total: 22
+               base: 1
+               FloorTable: [1,2,3,4,5,6]
+               Index: 1
+               FloorNum: 1
+               FloorName: 1楼
+               FloorHeight: 300
+               Atmos: 123456
+      -
+        Version: "1.0"
+        Params:
+           ServerConfig:
+              ServerAddress: test.hzjishiyu.com
+              ServerPort: 1883
+              KeepAlive: 10
+              CleanSession: 0
+              Secret: d5e214693c9348228f50b977b61cf2e7
+      -
+        Version: "1.0"
+        Params:
+           SelfCheckConfig:
+              ErrorNum: 24
+      -
+        Version: "1.0"
+        Params:
+           PowerState:
+              -
+                 Module: 1
+                 Toggle: 1
+              -
+                 Module: 2
+                 Toggle: 1
+              -
+                 Module: 3
+                 Toggle: 1
+      -
+        Version: "1.0"
+        Params:
+           OtherConfig:
+              RunReportTime: 1
+              IsRepair: 0
+      -
+        Version: "1.0"
+        Params:
+           ReportCurrentAtmos:
+              FloorNum: 0
+              Atmos: 12345
+   ErrorEvent_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1001
+               ErrorTime: "2023-08-16 16:25:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1002
+               ErrorTime: "2023-08-16 16:26:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1003
+               ErrorTime: "2023-08-16 16:27:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1004
+               ErrorTime: "2023-08-16 16:28:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1005
+               ErrorTime: "2023-08-16 16:29:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1006
+               ErrorTime: "2023-08-16 16:30:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1007
+               ErrorTime: "2023-08-16 16:31:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1008
+               ErrorTime: "2023-08-16 16:32:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1009
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1010
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
+   ErrorClose_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1001
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1002
+               CloseTime: "2023-08-16 16:29:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1003
+               CloseTime: "2023-08-16 16:30:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1004
+               CloseTime: "2023-08-16 16:31:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1005
+               CloseTime: "2023-08-16 16:32:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1006
+               CloseTime: "2023-08-16 16:33:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1007
+               CloseTime: "2023-08-16 16:34:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1008
+               CloseTime: "2023-08-16 16:35:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1009
+               CloseTime: "2023-08-16 16:36:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1010
+               CloseTime: "2023-08-16 16:36:07"
+            Time: 1692167117
+   LockEvent_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 1
+               LockTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 2
+               LockTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 0
+               LockTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   LockClose_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 1
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 2
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               Type: 0
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   SelfError_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3004
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   AlarmEvent_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2002
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2003
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2005
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2006
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2007
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2008
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2009
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2010
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   AlarmClose_post:
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2002
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2003
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2005
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2006
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2007
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2008
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2009
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2010
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+   service_reboot:
+      Version: "1.0"
+      Params:
+   service_getlog:
+      Version: "1.0"
+      Params:
+         deviceWriteType: ECT_GET_LOG_340
+         FileUploadServerUrl: http://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/file/ectlog_upload
+         SaasId: "1"
+  GetWeather_post:
+      Version: 1.0
+      Params:
+         Time: 1524448722000
+  LiveData_post:
+      Version: 1.0
+      Params:
+         Value:
+            DoorState: 1
+            PersonState: 1
+            CurrentFloor: -2B
+            RunDirection: 1
+            RunState: 1
+            Speed: '1.5'
+            ServerState: 1
+            CurrentError: 1001
+            Temperature: 20
+            Humidity: 30
+  RunStatistics_post:
+      Version: 1.0
+      Params:
+         Value:
+            StartTime: "2021/4/14 00:00:00"
+            EndTime: "2021/4/15 00:00:00"
+            DoorToggleCount: 100
+            RunMins: 100
+            RunMileage: 100
+            RunCount: 100
+            RunMeters: 300
+         Time: 1524448722000
+  ntp_post:
+      Version: 1.0
+      DSTime: 1571724098000

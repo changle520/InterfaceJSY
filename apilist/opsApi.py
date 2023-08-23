@@ -4,7 +4,6 @@ from common.logger import Logging
 from common.request import Request
 from conf.jishiyu import url
 from apilist.login import login
-from common.dateEncoder import DateEncoder
 
 
 Logging()

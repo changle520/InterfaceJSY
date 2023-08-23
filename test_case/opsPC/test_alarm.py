@@ -66,7 +66,7 @@ def test_alarm_event_list_export_001(login_start):
         headers.update(Authorization)
         #发送请求
         response=send_requests(method,apiurl,headers=headers,params=params)
-        #断言
+        断言
         assert response['code']==0
         assert response['msg']=="success"
 

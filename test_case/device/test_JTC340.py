@@ -531,10 +531,70 @@ def test_service_upgrade_001():
 
 @allure.feature("JTC340梯联测试")
 @allure.story("属性设置")
-@allure.title("设置梯联属性")
+@allure.title("设置梯联属性-检测参数")
 @allure.description("")
 def test_set_property_JTC340_001():
-      msg = data['msg']['set_property_JTC340']
+      msg = data['msg']['set_property_JTC340'][0]
+      run("set_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+
+@allure.feature("JTC340梯联测试")
+@allure.story("属性设置")
+@allure.title("设置梯联属性-楼层信息")
+@allure.description("")
+def test_set_property_JTC340_002():
+      msg = data['msg']['set_property_JTC340'][1]
+      run("set_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+
+@allure.feature("JTC340梯联测试")
+@allure.story("属性设置")
+@allure.title("设置梯联属性-远处服务信息")
+@allure.description("")
+def test_set_property_JTC340_003():
+      msg = data['msg']['set_property_JTC340'][2]
+      run("set_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+
+@allure.feature("JTC340梯联测试")
+@allure.story("属性设置")
+@allure.title("设置梯联属性-自检参数")
+@allure.description("")
+def test_set_property_JTC340_004():
+      msg = data['msg']['set_property_JTC340'][3]
+      run("set_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+
+@allure.feature("JTC340梯联测试")
+@allure.story("属性设置")
+@allure.title("设置梯联属性-其他参数")
+@allure.description("")
+def test_set_property_JTC340_005():
+      msg = data['msg']['set_property_JTC340'][4]
       run("set_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
       msg_str=read_submsg()

@@ -210,18 +210,53 @@ msg:
          Hash: 7A06CC0BA104B3E11687E2DD2FE0D882
          Url: https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-5K80jGXRLrtthread.rbl
    set_property_JTC340:
-      Version: "1.0"
-      Params:
-         deviceWriteType: ECT_UPGRADE_340
-         ErrorConfig:
-            BlockDoor: 45
-            DoorRepeat: 4
-            StayTrapped: 1
-            StatusManage: 0
-            OutSideTrapped: 1
-            DoorError: 5
-            StatyLockTimeOut: 180
-            LockTimeOut: 30
+      -
+        Version: "1.0"
+        Params:
+           deviceWriteType: ECT_UPGRADE_340
+           ErrorConfig:
+              BlockDoor: 45
+              DoorRepeat: 4
+              StayTrapped: 1
+              StatusManage: 0
+              OutSideTrapped: 1
+              DoorError: 5
+              StatyLockTimeOut: 180
+              LockTimeOut: 30
+      -
+         Version: "1.0"
+         Params:
+            deviceWriteType: ECT_UPGRADE_340
+            FloorConfig:
+               FloorTable: "-1,1,2,3,4,5"
+               BaseFloor: "1"
+               Nfloors: "-1"
+               SkipFloors: ""
+               MaxFloor: 5
+               FloorHeight: 300
+      -
+        Version: "1.0"
+        Params:
+           deviceWriteType: ECT_UPGRADE_340
+           ServerConfig:
+              ServerAddress: test.hzjishiyu.com
+              ServerPort: 1883
+              KeepAlive: 20
+              CleanSession: 0
+              Secret: d5e214693c9348228f50b977b61cf2e7
+      -
+        Version: "1.0"
+        Params:
+           deviceWriteType: ECT_UPGRADE_340
+           SelfCheckConfig:
+              ErrorNum: 24
+      -
+        Version: "1.0"
+        Params:
+           deviceWriteType: ECT_UPGRADE_340
+           OtherConfig:
+              RunReportTime: 1
+              IsRepair: 0
    post_property_JTC340:
       -
          Version: "1.0"

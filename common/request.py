@@ -22,23 +22,23 @@ class Request:
 
             if method.upper() == 'POST':
                 response = self.s.request(method='POST', url=url, data=data, params=params,json=json,headers=headers,files=files,
-                                          cookies=cookies)
+                                          cookies=cookies,verify=False)
                 print(response.text)
             elif method.upper() == 'GET':
                 if params:
                     response = self.s.request(method='GET', url=url, params=params, headers=headers,
-                                              cookies=cookies)
+                                              cookies=cookies,verify=False)
 
                 else:
                     response = self.s.request(method='GET', url=url, headers=headers,
-                                              cookies=cookies)
+                                              cookies=cookies,verify=False)
             elif method.upper() == 'PUT':
                 response = self.s.request(method='PUT', url=url, data=data, files=files, headers=headers,
-                                          cookies=cookies)
+                                          cookies=cookies,verify=False)
 
             elif method.upper() == 'DELETE':
                 response = self.s.request(method='DELETE', url=url, data=data,params=params,  headers=headers,
-                                          cookies=cookies)
+                                          cookies=cookies,verify=False)
 
 
 

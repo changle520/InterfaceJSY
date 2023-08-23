@@ -1,0 +1,14 @@
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:456 https://open.ys7.com:443 "POST /api/lapp/v2/live/address/get?accessToken=at.cv0b9u188si2m4mq0umoqumrdahbxvki-5mnc9ujlf1-11n94sd-lvhrusyaa&deviceSerial=C39204040&protocol=1&type=2&startTime=2023-06-28+00%3A00%3A01&stopTime=2023-06-28+08%3A59%3A12&quality=1&expireTime=7600&channelNo=1 HTTP/1.1" 200 None
+[32mINFO    [0m root:request.py:60 ----------------------------------------------------------------------------------------------------
+[32mINFO    [0m root:request.py:61 [ api name    ] : get
+[32mINFO    [0m root:request.py:62 [ request url ] : https://open.ys7.com/api/lapp/v2/live/address/get?accessToken=at.cv0b9u188si2m4mq0umoqumrdahbxvki-5mnc9ujlf1-11n94sd-lvhrusyaa&deviceSerial=C39204040&protocol=1&type=2&startTime=2023-06-28+00%3A00%3A01&stopTime=2023-06-28+08%3A59%3A12&quality=1&expireTime=7600&channelNo=1
+[32mINFO    [0m root:request.py:63 [ request paramer ] : {'accessToken': 'at.cv0b9u188si2m4mq0umoqumrdahbxvki-5mnc9ujlf1-11n94sd-lvhrusyaa', 'deviceSerial': 'C39204040', 'protocol': 1, 'type': 2, 'startTime': datetime.datetime(2023, 6, 28, 0, 0, 1), 'stopTime': datetime.datetime(2023, 6, 28, 8, 59, 12), 'quality': 1, 'expireTime': 7600, 'channelNo': 1, 'playbackSpeed': None}
+[32mINFO    [0m root:request.py:64 [ request hearder ] : None
+[32mINFO    [0m root:request.py:65 [ request data ] : None
+[32mINFO    [0m root:request.py:66 [ request json ] : None
+[32mINFO    [0m root:request.py:67 [ request files] : None
+[32mINFO    [0m root:request.py:68 [ method      ] : POST
+[32mINFO    [0m root:request.py:69 [ status code ] : 200
+[32mINFO    [0m root:request.py:70 [ time total  ] : 0.093796 s
+[32mINFO    [0m root:request.py:75 [ response json ] : {'msg': '操作成功', 'code': '200', 'data': {'id': None, 'url': 'ezopen://open.ys7.com/C39204040/1.hd.local.rec?begin=20230628000001&end=20230628085912', 'expireTime': None}}
+[32mINFO    [0m root:request.py:80 ----------------------------------------------------------------------------------------------------
