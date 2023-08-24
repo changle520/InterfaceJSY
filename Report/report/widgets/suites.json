@@ -1,1 +1,1 @@
-{"total":2,"items":[{"uid":"9f6dbec353a447dcd5698e62d1c31103","name":"opsPC","statistic":{"failed":8,"broken":8,"skipped":0,"passed":146,"unknown":0,"total":162}},{"uid":"11302c2101c823d2b66eab18fe12320a","name":"device","statistic":{"failed":0,"broken":2,"skipped":0,"passed":62,"unknown":0,"total":64}}]}
+{"total":1,"items":[{"uid":"9f6dbec353a447dcd5698e62d1c31103","name":"opsPC","statistic":{"failed":4,"broken":0,"skipped":0,"passed":20,"unknown":0,"total":24}}]}
