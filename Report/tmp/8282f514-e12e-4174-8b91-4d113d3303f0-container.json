@@ -1,1 +1,0 @@
-{"uuid": "dc9af73a-422d-4d5c-98ab-18f4c4617eae", "children": ["5ad03aa2-6a00-4dac-b329-2e90594c1634"], "befores": [{"name": "elevator_del_setup", "status": "passed", "start": 1692349410208, "stop": 1692349410208}], "afters": [{"name": "elevator_del_setup::0", "status": "passed", "start": 1692349410481, "stop": 1692349410677}], "start": 1692349410208, "stop": 1692349410677}

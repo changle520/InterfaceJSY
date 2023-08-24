@@ -1,4 +1,0 @@
-[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:1001 Starting new HTTPS connection (1): test-ops.21.hzjishiyu.com:443
-[31m[1mERROR   [0m root:request.py:46 RequestException URL : https://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/user/auth/login
-[31m[1mERROR   [0m root:request.py:47 RequestException Info: HTTPSConnectionPool(host='test-ops.21.hzjishiyu.com', port=443): Max retries exceeded with url: /jsy-api-ops-pc/ops/pc/user/auth/login (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)')))
-[32mINFO    [0m root:login.py:34 登录不成功:'NoneType' object has no attribute 'json'

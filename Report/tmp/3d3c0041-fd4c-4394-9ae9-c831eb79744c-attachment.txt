@@ -1,8 +1,0 @@
-[32mINFO    [0m root:execute.py:47 连接信息-broker:test.hzjishiyu.com
-[32mINFO    [0m root:execute.py:48 连接信息-port:1883
-[32mINFO    [0m root:execute.py:49 连接信息-keepalive:60
-[32mINFO    [0m root:execute.py:50 连接信息-client_id:DID330&300133121210002
-[32mINFO    [0m root:execute.py:34 连接成功
-[32mINFO    [0m root:execute.py:64 发布成功，发布的主题:/server/JTC340/100334121210009/thing/service/property/set/1692688801981,发布的消息:{"Version": "1.0", "Params": {"deviceWriteType": "ECT_UPGRADE_340", "OtherConfig": {"RunReportTime": 1, "IsRepair": 0}}}
-[32mINFO    [0m root:execute.py:91 停止线程
-[32mINFO    [0m root:execute.py:93 断开连接
