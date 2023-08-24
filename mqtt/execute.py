@@ -7,8 +7,8 @@ from common.hashlibSHA1 import password_md5
 from common.get_time import get_time
 from mqtt.get_msg import get_msg_pub
 from common.save_subMsg import save_submsg
-Logging()
 import threading
+Logging()
 
 
 #实例化读取配置文件的类,获取配置文件
