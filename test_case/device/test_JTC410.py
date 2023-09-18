@@ -64,6 +64,21 @@ def test_get_property_003():
       #断言
       logging.info(f"实际订阅结果:{msg_data}")
       assert msg_data['Code']==200
+      assert msg_data['Data']['ErrorConfig']['ClosedDoor'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['OpenDoor'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['ReapeatedDoor'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['ElevatorBottom'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['AccidentalMove'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['OutsidePark'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['ClosedDoor'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['MainPowerOutage'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['ElevatorOverspeed'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['EmergencyStop'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['OpenDoorWalk'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['NoFault'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['SafetyCircuitError'] in [0,1]
+      assert msg_data['Data']['ErrorConfig']['UnknownError'] in [0,1]
+
 
 @allure.feature("JTC410梯联测试")
 @allure.story("获取属性")
@@ -112,7 +127,7 @@ def test_get_property_006():
 
 @allure.feature("JTC410梯联测试")
 @allure.story("获取属性")
-@allure.title("获取其他参数配置：运行累计上报时间、维保状态")
+@allure.title("获取自检参数配置")
 @allure.description("")
 def test_get_property_007():
       msg = data['msg']['get_property'][6]
@@ -124,8 +139,41 @@ def test_get_property_007():
       #断言
       logging.info(f"实际订阅结果:{msg_data}")
       assert msg_data['Code']==200
+
+
+@allure.feature("JTC410梯联测试")
+@allure.story("获取属性")
+@allure.title("获取其他参数配置：运行累计上报时间、维保状态")
+@allure.description("")
+def test_get_property_008():
+      msg = data['msg']['get_property'][7]
+      run("get_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
       assert msg_data['Data']['OtherConfig']['RunReportTime']!=None
       assert msg_data['Data']['OtherConfig']['IsRepair']!=None
+
+@allure.feature("JTC410梯联测试")
+@allure.story("获取属性")
+@allure.title("获取静态IP")
+@allure.description("")
+def test_get_property_009():
+      msg = data['msg']['get_property'][8]
+      run("get_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+      assert msg_data['Data']['StaticIp']['IP']!=None
+      assert msg_data['Data']['StaticIp']['DeviceIP']!=None
 
 @allure.feature("JTC410梯联测试")
 @allure.story("电梯事件上报-故障告警")
@@ -300,10 +348,86 @@ def test_ErrorEvent_post_009():
 
 @allure.feature("JTC410梯联测试")
 @allure.story("电梯事件上报-故障告警")
-@allure.title("电梯无任何故障-上报")
+@allure.title("电梯急停故障-上报")
 @allure.description("")
 def test_ErrorEvent_post_010():
     msg = data['msg']['ErrorEvent_post'][9]
+    #获取当前时间的字符串格式并赋值给msg
+    ErrorTime=get_datetime()
+    msg['Params']['Value']['ErrorTime']=ErrorTime
+
+    run("ErrorEvent_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-故障告警")
+@allure.title("电梯超速故障-上报")
+@allure.description("")
+def test_ErrorEvent_post_011():
+    msg = data['msg']['ErrorEvent_post'][10]
+    #获取当前时间的字符串格式并赋值给msg
+    ErrorTime=get_datetime()
+    msg['Params']['Value']['ErrorTime']=ErrorTime
+
+    run("ErrorEvent_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-故障告警")
+@allure.title("电梯无故障-上报")
+@allure.description("")
+def test_ErrorEvent_post_012():
+    msg = data['msg']['ErrorEvent_post'][11]
+    #获取当前时间的字符串格式并赋值给msg
+    ErrorTime=get_datetime()
+    msg['Params']['Value']['ErrorTime']=ErrorTime
+
+    run("ErrorEvent_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-故障告警")
+@allure.title("安全回路断路-上报")
+@allure.description("")
+def test_ErrorEvent_post_013():
+    msg = data['msg']['ErrorEvent_post'][12]
+    #获取当前时间的字符串格式并赋值给msg
+    ErrorTime=get_datetime()
+    msg['Params']['Value']['ErrorTime']=ErrorTime
+
+    run("ErrorEvent_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-故障告警")
+@allure.title("未知故障-上报")
+@allure.description("")
+def test_ErrorEvent_post_014():
+    msg = data['msg']['ErrorEvent_post'][13]
     #获取当前时间的字符串格式并赋值给msg
     ErrorTime=get_datetime()
     msg['Params']['Value']['ErrorTime']=ErrorTime
@@ -489,6 +613,44 @@ def test_ErrorClose_post_009():
     assert msg_data['Code'] == 200
 
 @allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-故障告警")
+@allure.title("急停-解除")
+@allure.description("")
+def test_ErrorClose_post_010():
+    msg = data['msg']['ErrorClose_post'][9]
+    #获取当前时间的字符串格式并赋值给msg
+    CloseTime=get_datetime()
+    msg['Params']['Value']['CloseTime']=CloseTime
+
+    run("ErrorClose_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-故障告警")
+@allure.title("超速-解除")
+@allure.description("")
+def test_ErrorClose_post_011():
+    msg = data['msg']['ErrorClose_post'][10]
+    #获取当前时间的字符串格式并赋值给msg
+    CloseTime=get_datetime()
+    msg['Params']['Value']['CloseTime']=CloseTime
+
+    run("ErrorClose_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
 @allure.story("NTP授时请求")
 @allure.title("NTP授时请求")
 @allure.description("")
@@ -553,7 +715,7 @@ def test_service_upgrade_001():
 @allure.title("设置故障开关-全关")
 @allure.description("")
 def test_set_property_001():
-      msg = data['msg']['set_property']
+      msg = data['msg']['set_property'][0]
       run("set_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
       msg_str=read_submsg()
@@ -568,7 +730,7 @@ def test_set_property_001():
 @allure.title("设置故障开关-全开")
 @allure.description("")
 def test_set_property_002():
-      msg = data['msg']['set_property']
+      msg = data['msg']['set_property'][1]
       run("set_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
       msg_str=read_submsg()
@@ -583,7 +745,7 @@ def test_set_property_002():
 @allure.title("设置事件开关-全开")
 @allure.description("")
 def test_set_property_003():
-      msg = data['msg']['set_property']
+      msg = data['msg']['set_property'][2]
       run("set_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
       msg_str=read_submsg()
@@ -598,7 +760,7 @@ def test_set_property_003():
 @allure.title("设置事件开关-全关")
 @allure.description("")
 def test_set_property_004():
-      msg = data['msg']['set_property']
+      msg = data['msg']['set_property'][3]
       run("set_property",msg,productKey,deviceName)
       #从文件中获取订阅到的消息并转换为字典对象,productKey,deviceName
       msg_str=read_submsg()
@@ -838,7 +1000,7 @@ def test_AlarmEvent_post_002():
 
 @allure.feature("JTC410梯联测试")
 @allure.story("电梯事件上报-事件告警")
-@allure.title("电动车检测-上报")
+@allure.title("一键报警事件-上报")
 @allure.description("")
 def test_AlarmEvent_post_003():
     msg = data['msg']['AlarmEvent_post'][2]
@@ -857,10 +1019,29 @@ def test_AlarmEvent_post_003():
 
 @allure.feature("JTC410梯联测试")
 @allure.story("电梯事件上报-事件告警")
-@allure.title("钢瓶检测-上报")
+@allure.title("电动车检测-上报")
 @allure.description("")
 def test_AlarmEvent_post_004():
     msg = data['msg']['AlarmEvent_post'][3]
+    #获取当前时间的字符串格式并赋值给msg
+    AlarmTime=get_datetime()
+    msg['Params']['Value']['AlarmTime']=AlarmTime
+
+    run("AlarmEvent_post",msg,productKey,deviceName)
+    # 从文件中获取订阅到的消息并转换为字典对象
+    msg_str = read_submsg()
+    msg_data = get_msg_sub(msg_str)
+
+    # 断言
+    logging.info(f"实际订阅结果:{msg_data}")
+    assert msg_data['Code'] == 200
+
+@allure.feature("JTC410梯联测试")
+@allure.story("电梯事件上报-事件告警")
+@allure.title("钢瓶检测-上报")
+@allure.description("")
+def test_AlarmEvent_post_005():
+    msg = data['msg']['AlarmEvent_post'][4]
     #获取当前时间的字符串格式并赋值给msg
     AlarmTime=get_datetime()
     msg['Params']['Value']['AlarmTime']=AlarmTime

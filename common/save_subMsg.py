@@ -11,7 +11,7 @@ parent_path = os.path.dirname(current_path)
 filename=parent_path+'\\test_data\\submsg.txt'
 def save_submsg(msg):
     '''保存订阅的消息'''
-    print("保存:",msg)
+    # print("保存:",msg)
     with open(filename,"w",encoding='utf-8') as f1:
         f1.write(msg)
         logging.info('保存成功')

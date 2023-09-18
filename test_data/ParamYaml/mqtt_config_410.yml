@@ -18,8 +18,8 @@ DID340:
    deviceName: 300134121210008
 JTC410:
    productKey: JTC410
-   deviceName:
-   Secret:
+   deviceName: 300133119190047
+   Secret: fc25e43230264018aafdabe462749eb7
 topic:
    get_property:
       sub: /device/{}/{}/thing/service/property/get_reply/
@@ -107,7 +107,15 @@ msg:
       -
          Version: 1.0
          Params:
+            PropNames: SelfCheckConfig
+      -
+         Version: 1.0
+         Params:
             PropNames: OtherConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: StaticIp
    service_upgrade:
       Version: "1.0"
       Params:
@@ -356,6 +364,34 @@ msg:
                ErrorType: 1010
                ErrorTime: "2023-08-16 16:33:07"
             Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1011
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1012
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1013
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1014
+               ErrorTime: "2023-08-16 16:33:07"
+            Time: 1692167107
    ErrorClose_post:
       -
          Version: "1.0"
@@ -427,6 +463,20 @@ msg:
                ErrorType: 1010
                CloseTime: "2023-08-16 16:36:07"
             Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1011
+               CloseTime: "2023-08-16 16:36:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 1012
+               CloseTime: "2023-08-16 16:36:07"
+            Time: 1692167117
    LockEvent_post:
       -
          Version: "1.0"
@@ -476,7 +526,56 @@ msg:
          Version: "1.0"
          Params:
             Value:
+               ErrorType: 3001
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3002
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3003
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
                ErrorType: 3004
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3005
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3006
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3007
+               OccurTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               ErrorType: 3008
                OccurTime: "2023-08-16 16:28:07"
             Time: 1692167117
    AlarmEvent_post:
@@ -492,6 +591,13 @@ msg:
          Params:
             Value:
                AlarmType: 2003
+               AlarmTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
+               AlarmType: 2004
                AlarmTime: "2023-08-16 16:28:07"
             Time: 1692167117
       -
@@ -555,6 +661,13 @@ msg:
          Version: "1.0"
          Params:
             Value:
+               AlarmType: 2004
+               CloseTime: "2023-08-16 16:28:07"
+            Time: 1692167117
+      -
+         Version: "1.0"
+         Params:
+            Value:
                AlarmType: 2005
                CloseTime: "2023-08-16 16:28:07"
             Time: 1692167117
@@ -602,11 +715,11 @@ msg:
          deviceWriteType: ECT_GET_LOG_340
          FileUploadServerUrl: http://test-ops.21.hzjishiyu.com/jsy-api-ops-pc/ops/pc/file/ectlog_upload
          SaasId: "1"
-  GetWeather_post:
+   GetWeather_post:
       Version: 1.0
       Params:
          Time: 1524448722000
-  LiveData_post:
+   LiveData_post:
       Version: 1.0
       Params:
          Value:
@@ -620,7 +733,7 @@ msg:
             CurrentError: 1001
             Temperature: 20
             Humidity: 30
-  RunStatistics_post:
+   RunStatistics_post:
       Version: 1.0
       Params:
          Value:
@@ -632,6 +745,6 @@ msg:
             RunCount: 100
             RunMeters: 300
          Time: 1524448722000
-  ntp_post:
+   ntp_post:
       Version: 1.0
       DSTime: 1571724098000
