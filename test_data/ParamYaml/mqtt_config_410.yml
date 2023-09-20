@@ -116,6 +116,18 @@ msg:
          Version: 1.0
          Params:
             PropNames: StaticIp
+      -
+         Version: 1.0
+         Params:
+            PropNames: LiveDataRent
+      -
+         Version: 1.0
+         Params:
+            PropNames: GetCurrentLiveData
+      -
+         Version: 1.0
+         Params:
+            PropNames: GetCurrentAtmos
    service_upgrade:
       Version: "1.0"
       Params:

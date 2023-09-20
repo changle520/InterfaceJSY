@@ -19,9 +19,9 @@ data=readFileData.get_data('test_data/ParamYaml','mqtt_config.yml')
 broker=data['server']["broker"]
 port=data['server']["port"]
 keepalive=data['server']["keepalive"] #与代理通信之间允许的最长时间段(以S为单位)
-client_id=data['DID330']["client_id"]   #客户端id
-username=data['DID330']["username"]
-password=data['DID330']["password"]
+client_id=data['DID330_2']["client_id"]   #客户端id
+username=data['DID330_2']["username"]
+password=data['DID330_2']["password"]
 password_md5=password_md5(password)
 
 
@@ -126,8 +126,8 @@ def run(name,msg,productKey,deviceName):
 
 
 if __name__=="__main__":
-        productKey=data['DID330_2']['productKey']
-        deviceName=data['DID330_2']['deviceName']
+        productKey=data['DID340']['productKey']
+        deviceName=data['DID340']['deviceName']
         msg=data['msg']['get_property']
         run("get_property",msg,productKey,deviceName)
 

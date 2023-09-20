@@ -176,6 +176,60 @@ def test_get_property_009():
       assert msg_data['Data']['StaticIp']['DeviceIP']!=None
 
 @allure.feature("JTC410梯联测试")
+@allure.story("获取属性")
+@allure.title("实时数据获取操作、用例待更新")
+@allure.description("")
+@pytest.mark.xfail
+def test_get_property_010():
+      msg = data['msg']['get_property'][9]
+      run("get_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+      assert msg_data['Data']['StaticIp']['IP']!=None
+      assert msg_data['Data']['StaticIp']['DeviceIP']!=None
+
+@allure.feature("JTC410梯联测试")
+@allure.story("获取属性")
+@allure.title("获取当前运行状态数据、用例待更新")
+@allure.description("")
+@pytest.mark.xfail
+def test_get_property_011():
+      msg = data['msg']['get_property'][10]
+      run("get_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+      assert msg_data['Data']['StaticIp']['IP']!=None
+      assert msg_data['Data']['StaticIp']['DeviceIP']!=None
+
+@allure.feature("JTC410梯联测试")
+@allure.story("获取属性")
+@allure.title("获取当前楼层气压数据、用例待更新")
+@allure.description("")
+@pytest.mark.xfail
+def test_get_property_012():
+      msg = data['msg']['get_property'][11]
+      run("get_property",msg,productKey,deviceName)
+      #从文件中获取订阅到的消息并转换为字典对象
+      msg_str=read_submsg()
+      msg_data=get_msg_sub(msg_str)
+
+      #断言
+      logging.info(f"实际订阅结果:{msg_data}")
+      assert msg_data['Code']==200
+      assert msg_data['Data']['StaticIp']['IP']!=None
+      assert msg_data['Data']['StaticIp']['DeviceIP']!=None
+
+@allure.feature("JTC410梯联测试")
 @allure.story("电梯事件上报-故障告警")
 @allure.title("轿厢意外移动-上报")
 @allure.description("")

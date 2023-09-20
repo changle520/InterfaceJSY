@@ -10,6 +10,9 @@ DID330:
    productKey: DID330
    deviceName: 300133121210002
 DID330_2:
+   client_id: DID330&300133123050002
+   username: DID330&300133123050002
+   password: DID330&300133123050002&c07d359b30de4997a586f5489d7fce7a
    productKey: DID330
    deviceName: 300133123050002
    secret: c07d359b30de4997a586f5489d7fce7a
@@ -40,6 +43,21 @@ topic:
    GetWeather_post:
       sub: /server/{}/{}/thing/event/GetWeather/post_reply/
       pub: /device/{}/{}/thing/event/GetWeather/post/
+   addnormaladvertlist:
+      sub: /device/{}/{}/thing/service/addnormaladvertlist_replay/
+      pub: /server/{}/{}/thing/service/addnormaladvertlist/
+   deladvertlist:
+      sub: /device/{}/{}/thing/service/deladvertlist_replay/
+      pub: /server/{}/{}/thing/service/deladvertlist/
+   log2aliyun:
+      sub: /device/{}/{}/thing/service/log2aliyun_replay/
+      pub: /server/{}/{}/thing/service/log2aliyun/
+   startreportinfo:
+      sub: /device/{}/{}/thing/service/startreportinfo_replay/
+      pub: /server/{}/{}/thing/service/startreportinfo/
+   PlayStatistics:
+      sub: /server/{}/{}/thing/event/PlayStatistics/post_reply/
+      pub: /device/{}/{}/thing/event/PlayStatistics/post/
    LiveData_post:
       sub: /server/{}/{}/thing/event/LiveData/post_reply/
       pub: /device/{}/{}/thing/event/LiveData/post/
@@ -54,6 +72,9 @@ topic:
       pub: /device/{}/{}/thing/event/property/post/
    service_upgrade:
       sub: /device/{}/{}/thing/service/upgrade_reply/
+      pub: /server/{}/{}/thing/service/upgrade/
+   service_upgrade_DID340:
+      sub: /device/{}/{}/thing/service/upgrade_replay/
       pub: /server/{}/{}/thing/service/upgrade/
    ErrorEvent_post:
       sub: /server/{}/{}/thing/event/ErrorEvent/post_reply/
@@ -79,40 +100,73 @@ topic:
    service_reboot:
       sub: /device/{}/{}/thing/service/reboot_reply/
       pub: /server/{}/{}/thing/service/reboot/
+   service_reboot_DID340:
+      sub: /device/{}/{}/thing/service/reboot_replay/
+      pub: /server/{}/{}/thing/service/reboot/
    service_getlog:
       sub: /device/{}/{}/thing/service/getlog_reply/
       pub: /server/{}/{}/thing/service/getlog/
 msg:
    get_property:
-      Version: 1.0
-      Params:
-         PropNames: ServerConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: ServerConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: DeviceInfo
+      -
+         Version: 1.0
+         Params:
+            PropNames: CurrentAdverts
+      -
+         Version: 1.0
+         Params:
+            PropNames: SleepConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: ElevatorConfig
+      -
+         Version: 1.0
+         Params:
+            PropNames: PhoneConfig
    set_property:
-      Version: 1.0
-      Params:
-         PhoneConfig:
-            -
-               PhoneName: phone1
-               PhoneNo: 13000000000
-            -
-               PhoneName: phone2
-               PhoneNo: 13011111111
-         VoiceConfig:
-            -
-               StartTime: "09_00"
-               EndTime: "11_35"
-               Voice: 10
-            -
-               StartTime: "11_36"
-               EndTime: "23_59"
-               Voice: 30
-         SleepConfig:
-            -
-               StartTime: "19_00"
-               EndTime: "23_59"
-            -
-               StartTime: "00_01"
-               EndTime: "08_59"
+      -
+         Version: 1.0
+         Params:
+            PhoneConfig:
+               -
+                  PhoneName: phone1
+                  PhoneNo: 13000000000
+               -
+                  PhoneName: phone2
+                  PhoneNo: 13011111111
+            VoiceConfig:
+               -
+                  StartTime: "09_00"
+                  EndTime: "11_35"
+                  Voice: 10
+               -
+                  StartTime: "11_36"
+                  EndTime: "23_59"
+                  Voice: 30
+            SleepConfig:
+               -
+                  StartTime: "19_00"
+                  EndTime: "23_59"
+               -
+                  StartTime: "00_01"
+                  EndTime: "08_59"
+      -
+         Version: 1.0
+         Params:
+            deviceWriteType: IS_NOTICE_CONFIG_340
+            NoticeConfig:
+               -
+                  Content: 大傻子
+                  Sign: "428"
    post_property:
       Version: 1.0
       Params:
@@ -170,6 +224,64 @@ msg:
             RunCount: 100
             RunMeters: 300
          Time: 1524448722000
+   service_upgrade_DID340:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_UPGRADE_340
+         Version: "301.34.23.0616"
+         Hash: "490D782D8312BBB81639D60DBFCA28DF"
+         Url: https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-KRzvjmqTcggj_301.34.23.0616.apk
+   addnormaladvertlist:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_ADD_NORMAL_ADVERT_LIST_340
+         EndTime: 1695830399000
+         Materials:
+            -
+               MaterialId: "1557523625756553409"
+               Resources:
+                  -
+                     Type: 2
+                     Duration: 15
+                     Id: "4459248051672234862"
+                     Hash: "7E417BF07E070512F0C22DBB30D97BDA"
+                     Url: "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/JsySaasCloud/adPC/material/U9T913vFp49ED719660E4427589C420DA676DF7AC_1080x1764.mp4"
+                     Resolution: "1080*1764"
+         StartTime: 1695052800000
+         Code: "8705030108139154481"
+   log2aliyun:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_LOG2ALIYUN_340
+         StartTime: "2023-09-19 10:00:00"
+         Url: "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/?accessKeyId=STS.NTA7MbUoxUj3Cc1nNLPMrJXTP\u0026accessKeySecret=4eK1ZcR3fnEb7iMULhse3ksiW1rHijwuxocZk8b13DHr\u0026securityToken=CAIS/QJ1q6Ft5B2yfSjIr5f0fPfWuLBZ4qjYQUWAik4ZXMJepZ3/sjz2IHFJdHJtAe0ZsP4znmlQ6/gclqJoVpV/QkjJS8J148zlG9wSodOT1fau5Jko1bcecAr6Umxeta2/SuH9S8ynNZXJQlvYlyh17KLnfDG5JTKMOoGIjpgVCbZyWRKjPwJbGPBcJAZptLXoXBm3D/u2NQPwiWf9FVdhvhEG6Vly8qOi2MaRmAy82FTx0b0SvJ\u002BjYMrmPct3LdJkWt6umedycbfNlTJd8AQN1rxnt6VN4hzDucyRRF5J\u002BC2NdObZ7NxkISt\u002BacpsEqVf/v/njq866K6BlZ/mjg1ENPoQWCDYWYzl3MbfBKSLLccCfL/gEHDKz9zIMYHuiwhjbX8FNQhHX90ubT1ScUVyE2uBcvb5pwiTMlb4FPW/vftogcYv/TLB5sGXIlWDebKd3BsDN4U0B0FSbE9LjTe8KvJZLVYQKQo/WujLV\u002BRydwxZsrjsugLCgdfCRIrzOZcagAGTa7iVG/ksZe24GOMc4\u002BCIZ1FZ03yGhqCc8JB80pE77bkPME4Ijwpg\u002BGJqfqRtImk8uKO2UME4LIkVikCBvtjq4xoUIL09nDeNr5aGPq9otK17u96oI0HPYM0Zcg4yxKziKg0qScO9ju0hnjon4FH/4d8m1Z8Y3acJUPvHwEs05yAA\u0026expiration=2023-09-19T03:13:31Z\u0026objectKey=JsySaasCloud/opsPc/deviceLog/\u0026fileName=DID340-300134121210008-1695089610862.log"
+   deladvertlist:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_DEL_ADVERT_LIST_340
+         Codes:
+            -
+               "7543616665691446726"
+   startreportinfo:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_START_REPORT_INFO_340
+         Time: 600
+   PlayStatistics:
+      Version: "1.0"
+      Params:
+         Value:
+            Lists:
+               -
+                  Code: "8705030108139154481"
+                  Times: 235
+            Resources:
+               -
+                  Code: "8705030108139154481"
+                  Duration: 3544
+                  MaterialId: "1557523625756553409"
+                  Times: 235
+         Time: 1695115373901
    ntp_post:
       Version: 1.0
       DSTime: 1571724098000
