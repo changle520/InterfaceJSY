@@ -23,6 +23,13 @@ DID340:
    secret: 515af789c7a64817abf4aadff4ac9f12
    productKey: DID340
    deviceName: 300134121210008
+DID400:
+   client_id: DID400&300140121210002
+   username: DID400&300140121210002
+   password: DID400&300140121210002&515af789c7a64817abf4aadff4ac9f12
+   secret:
+   productKey: DID400
+   deviceName: 300140121210002
 JTC340:
    productKey: JTC340
    deviceName: 100334121210009
@@ -167,6 +174,43 @@ msg:
                -
                   Content: 大傻子
                   Sign: "428"
+   set_property_DID400:
+      -
+         Version: 1.0
+         Params:
+            deviceWriteType: IS_PHONE_CONFIG_340
+            PhoneConfig:
+               -
+                  PhoneName: phone1
+                  PhoneNo: 13000000000
+               -
+                  PhoneName: phone2
+                  PhoneNo: 13011111111
+      -
+         Version: 1.0
+         Params:
+            deviceWriteType: IS_VOICE_CONFIG_340
+            VoiceConfig:
+               -
+                  EndTime: "23_59"
+                  StartTime: "00_00"
+                  Voice: 30
+      -
+         Version: 1.0
+         Params:
+            deviceWriteType: IS_SLEEP_CONFIG_340
+            SleepConfig:
+               -
+                  StartTime: "19_00"
+                  EndTime: "23_59"
+      -
+         Version: 1.0
+         Params:
+            deviceWriteType: IS_NOTICE_CONFIG_340
+            NoticeConfig:
+               -
+                  Content: "明天早上八点到九点会停水停电一小时"
+                  Sign: "429"
    post_property:
       Version: 1.0
       Params:
@@ -230,7 +274,14 @@ msg:
          deviceWriteType: IS_UPGRADE_340
          Version: "301.34.23.0616"
          Hash: "490D782D8312BBB81639D60DBFCA28DF"
-         Url: https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-KRzvjmqTcggj_301.34.23.0616.apk
+         Url: "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-KRzvjmqTcggj_301.34.23.0616.apk"
+   service_upgrade_DID400:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_UPGRADE_340
+         Version: "301.40.23.0616"
+         Hash: "490D782D8312BBB81639D60DBFCA28DF"
+         Url: "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/download-skoF7Gu6Gggj_301.40.23.0616.apk"
    addnormaladvertlist:
       Version: "1.0"
       Params:
@@ -249,6 +300,24 @@ msg:
                      Resolution: "1080*1764"
          StartTime: 1695052800000
          Code: "8705030108139154481"
+   addnormaladvertlist_DID400:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_ADD_NORMAL_ADVERT_LIST_340
+         EndTime: 1696089599000
+         Materials:
+            -
+               MaterialId: "5242473739379472777"
+               Resources:
+                  -
+                     Type: 2
+                     Duration: 35
+                     Id: "8379906773391893653"
+                     Hash: "300D662F57EAD92C35DA022CF935DFFB"
+                     Url: "https://jsy-saas-cloud-test.oss-cn-hangzhou.aliyuncs.com/JsySaasCloud/adPC/material/qz1RiPtwzbike.mp4"
+                     Resolution: "1080*1764"
+         StartTime: 1695052800000
+         Code: "8973046256897846356"
    log2aliyun:
       Version: "1.0"
       Params:
@@ -262,6 +331,13 @@ msg:
          Codes:
             -
                "7543616665691446726"
+   deladvertlist_DID400:
+      Version: "1.0"
+      Params:
+         deviceWriteType: IS_DEL_ADVERT_LIST_340
+         Codes:
+            -
+               "8973046256897846356"
    startreportinfo:
       Version: "1.0"
       Params:

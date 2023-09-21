@@ -29,6 +29,6 @@ data = ReadFileData()
 
 if __name__ == '__main__':
     ReadFileData=ReadFileData()
-    dat = ReadFileData.get_data('test_data/ParamYaml','mqtt_config_410.yml')
+    dat = ReadFileData.get_data('test_data/ParamYaml','mqtt_config.yml')
     # print(dat['customer_mt_update'],"\n",type(dat),"\n",str(dat))
 
